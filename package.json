@@ -1,6 +1,6 @@
 {
   "name": "dk.hjohansen.dukaone",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "description": "Homey app for Duka One ventilation units",
   "main": "app.js",
