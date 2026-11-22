@@ -1,9 +1,9 @@
 {
   "pair": {
-    "titleS6w": "Tilføj en Duka One S6W",
-    "introS6w": "Søg efter Duka One S6W-enheder på netværket, eller indtast enheds-id'et fra Duka One-appen.",
-    "titleSmart": "Tilføj en Duka One smart ventilator",
-    "introSmart": "Søg efter Duka One smart-ventilatorer på netværket, eller indtast enheds-id'et fra Duka One-appen.",
+    "titleS6w": "Tilføj en DUKA S6W",
+    "introS6w": "Søg efter DUKA S6W-enheder på netværket, eller indtast enheds-id'et fra DUKA-appen.",
+    "titleSmart": "Tilføj en DUKA smart ventilator",
+    "introSmart": "Søg efter DUKA smart-ventilatorer på netværket, eller indtast enheds-id'et fra DUKA-appen.",
     "search": "Søg",
     "searching": "Søger efter enheder...",
     "noneFound": "Ingen enheder svarede. Indtast enheds-id'et manuelt.",
@@ -11,7 +11,7 @@
     "severalFound": "Fandt flere enheder. Vælg en nedenfor.",
     "orManual": "eller indtast manuelt",
     "deviceId": "Enheds-id",
-    "deviceIdHint": "Findes i Duka One-appen under enhedsoplysninger.",
+    "deviceIdHint": "Findes i DUKA-appen under enhedsoplysninger.",
     "password": "Adgangskode",
     "address": "IP-adresse (valgfri)",
     "addressHint": "Lad feltet stå tomt for at bruge netværkets broadcast-adresse.",
@@ -20,8 +20,8 @@
     "verifying": "Kontakter enheden...",
     "errors": {
       "device_id": "Indtast enheds-id'et.",
-      "wrong_model_s6w": "Denne enhed er en smart ventilator. Tilføj den under Duka One smart ventilator.",
-      "wrong_model_smart": "Denne enhed er en S6W-varmegenvinding. Tilføj den under Duka One S6W."
+      "wrong_model_s6w": "Denne enhed er en DUKA smart ventilator. Tilføj den under DUKA smart ventilator.",
+      "wrong_model_smart": "Denne enhed er en DUKA S6W. Tilføj den under DUKA S6W."
     }
   }
 }

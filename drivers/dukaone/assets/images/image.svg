@@ -1,13 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
-  <rect width="1000" height="1000" fill="#cd2439"/>
-  <g transform="translate(500 500) scale(0.8) translate(-480 -480)">
-    
-  <rect x="180" y="140" width="600" height="680" rx="80" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M330 620 L330 360" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M270 420 L330 360 L390 420" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M630 340 L630 600" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M570 540 L630 600 L690 540" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M400 480 L440 440 L480 480 L520 440 L560 480" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-
-  </g>
+  <rect width="1000" height="1000" fill="#ffffff"/>
+  <ellipse cx="520" cy="790" rx="270" ry="38" fill="#f0f0f0"/>
+  <path d="M660 230 L760 280 L760 700 L660 750 Z" fill="#e6e6e6" stroke="#d0d0d0" stroke-width="4"/>
+  <rect x="280" y="200" width="380" height="550" rx="60" fill="#fafafa" stroke="#d0d0d0" stroke-width="4"/>
+  <circle cx="470" cy="420" r="120" fill="#ffffff" stroke="#d0d0d0" stroke-width="6"/>
+  <circle cx="470" cy="420" r="88" fill="none" stroke="#e4e4e4" stroke-width="6"/>
+  <circle cx="470" cy="420" r="56" fill="none" stroke="#e4e4e4" stroke-width="6"/>
+  <line x1="470" y1="300" x2="470" y2="540" stroke="#e4e4e4" stroke-width="5"/>
+  <line x1="350" y1="420" x2="590" y2="420" stroke="#e4e4e4" stroke-width="5"/>
+  <circle cx="470" cy="420" r="24" fill="#cd2439"/>
+  <path d="M370 620 L370 690 M345 665 L370 690 L395 665" fill="none" stroke="#cd2439" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M570 690 L570 620 M545 645 L570 620 L595 645" fill="none" stroke="#cd2439" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="320" y="720" width="300" height="10" rx="5" fill="#cd2439" opacity="0.85"/>
 </svg>

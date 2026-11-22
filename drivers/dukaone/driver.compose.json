@@ -1,7 +1,7 @@
 {
   "name": {
-    "en": "Duka One S6W",
-    "da": "Duka One S6W"
+    "en": "DUKA S6W",
+    "da": "DUKA S6W"
   },
   "class": "fan",
   "capabilities": [
@@ -17,7 +17,7 @@
     "dim": {
       "title": {
         "en": "Fan speed",
-        "da": "Blæserhastighed"
+        "da": "Bl\u00e6serhastighed"
       }
     },
     "button.reset_filter": {
@@ -28,7 +28,7 @@
       },
       "desc": {
         "en": "Tells the unit that the filter has been replaced and starts a new 90 day filter period.",
-        "da": "Fortæller enheden at filteret er skiftet og starter en ny 90 dages filterperiode."
+        "da": "Fort\u00e6ller enheden at filteret er skiftet og starter en ny 90 dages filterperiode."
       }
     }
   },

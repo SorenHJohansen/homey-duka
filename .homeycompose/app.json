@@ -12,8 +12,8 @@
     "da": "DUKA"
   },
   "description": {
-    "en": "Control Duka One ventilation units on your local network.",
-    "da": "Styr Duka One ventilationsenheder p\u00e5 dit lokale netv\u00e6rk."
+    "en": "Control DUKA ventilation units over your local network.",
+    "da": "Styr DUKA-ventilationsenheder p\u00e5 dit lokale netv\u00e6rk."
   },
   "category": "climate",
   "brandColor": "#cd2439",
@@ -39,11 +39,13 @@
     "xlarge": "/assets/images/xlarge.png"
   },
   "author": {
-    "name": "S\u00f8ren H. Johansen"
+    "name": "S\u00f8ren H. Johansen",
+    "email": "github.z9n6g@passinbox.com"
   },
   "source": "https://github.com/SorenHJohansen/homey-dukaone",
   "bugs": {
     "url": "https://github.com/SorenHJohansen/homey-dukaone/issues"
   },
-  "support": "https://github.com/SorenHJohansen/homey-dukaone/issues"
+  "support": "https://github.com/SorenHJohansen/homey-dukaone/issues",
+  "homepage": "https://github.com/SorenHJohansen/homey-dukaone"
 }

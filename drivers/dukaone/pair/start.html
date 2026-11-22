@@ -217,9 +217,9 @@
 </style>
 
 <div class="duka">
-  <h1 id="title">Add a Duka One</h1>
+  <h1 id="title">Add a DUKA</h1>
   <p id="intro">
-    Search your network for Duka One units, or enter the device ID from the Duka One app.
+    Search your network for DUKA units, or enter the device ID from the DUKA app.
   </p>
 
   <div class="row">
@@ -234,7 +234,7 @@
   <div class="card">
     <label class="field" for="deviceId">
       <span id="deviceIdLabel">Device ID</span>
-      <span class="hint" id="deviceIdHint">Shown in the Duka One app under device information.</span>
+      <span class="hint" id="deviceIdHint">Shown in the DUKA app under device information.</span>
       <input type="text" id="deviceId" autocomplete="off" autocapitalize="characters" spellcheck="false" />
     </label>
 
@@ -251,7 +251,7 @@
 
     <label class="field" for="name">
       <span id="nameLabel">Name</span>
-      <input type="text" id="name" value="Duka One" autocomplete="off" />
+      <input type="text" id="name" value="DUKA" autocomplete="off" />
     </label>
   </div>
 
@@ -392,7 +392,7 @@
 
       var password = byId("password").value.trim() || "1111";
       var address = byId("address").value.trim() || null;
-      var name = byId("name").value.trim() || (IS_SMART ? "Duka One smart fan" : "Duka One S6W");
+      var name = byId("name").value.trim() || (IS_SMART ? "DUKA smart fan" : "DUKA S6W");
 
       setBusy(true);
       setText("addStatus", t("pair.verifying", "Contacting the unit..."));
@@ -430,19 +430,19 @@
       booted = true;
       HomeyRef = Homey;
 
-      setText("title", t(IS_SMART ? "pair.titleSmart" : "pair.titleS6w", IS_SMART ? "Add a Duka One smart fan" : "Add a Duka One S6W"));
-      setText("intro", t(IS_SMART ? "pair.introSmart" : "pair.introS6w", IS_SMART ? "Search your network for Duka One smart fans, or enter the device ID from the Duka One app." : "Search your network for Duka One S6W units, or enter the device ID from the Duka One app."));
+      setText("title", t(IS_SMART ? "pair.titleSmart" : "pair.titleS6w", IS_SMART ? "Add a DUKA smart fan" : "Add a DUKA S6W"));
+      setText("intro", t(IS_SMART ? "pair.introSmart" : "pair.introS6w", IS_SMART ? "Search your network for DUKA smart fans, or enter the device ID from the DUKA app." : "Search your network for DUKA S6W units, or enter the device ID from the DUKA app."));
       setText("searchButton", t("pair.search", "Search"));
       setText("manualDivider", t("pair.orManual", "or enter it manually"));
       setText("deviceIdLabel", t("pair.deviceId", "Device ID"));
-      setText("deviceIdHint", t("pair.deviceIdHint", "Shown in the Duka One app under device information."));
+      setText("deviceIdHint", t("pair.deviceIdHint", "Shown in the DUKA app under device information."));
       setText("passwordLabel", t("pair.password", "Password"));
       setText("addressLabel", t("pair.address", "IP address (optional)"));
       setText("addressHint", t("pair.addressHint", "Leave empty to use the network broadcast address."));
       setText("nameLabel", t("pair.name", "Name"));
       setText("addButton", t("pair.add", "Add device"));
 
-      byId("name").value = IS_SMART ? "Duka One smart fan" : "Duka One S6W";
+      byId("name").value = IS_SMART ? "DUKA smart fan" : "DUKA S6W";
 
       byId("searchButton").addEventListener("click", search);
       byId("addButton").addEventListener("click", add);

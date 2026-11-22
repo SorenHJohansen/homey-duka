@@ -13,8 +13,8 @@
     "da": "DUKA"
   },
   "description": {
-    "en": "Control Duka One ventilation units on your local network.",
-    "da": "Styr Duka One ventilationsenheder på dit lokale netværk."
+    "en": "Control DUKA ventilation units over your local network.",
+    "da": "Styr DUKA-ventilationsenheder på dit lokale netværk."
   },
   "category": "climate",
   "brandColor": "#cd2439",
@@ -40,13 +40,15 @@
     "xlarge": "/assets/images/xlarge.png"
   },
   "author": {
-    "name": "Søren H. Johansen"
+    "name": "Søren H. Johansen",
+    "email": "github.z9n6g@passinbox.com"
   },
   "source": "https://github.com/SorenHJohansen/homey-dukaone",
   "bugs": {
     "url": "https://github.com/SorenHJohansen/homey-dukaone/issues"
   },
   "support": "https://github.com/SorenHJohansen/homey-dukaone/issues",
+  "homepage": "https://github.com/SorenHJohansen/homey-dukaone",
   "flow": {
     "triggers": [
       {
@@ -581,8 +583,8 @@
   "drivers": [
     {
       "name": {
-        "en": "Duka One S6W",
-        "da": "Duka One S6W"
+        "en": "DUKA S6W",
+        "da": "DUKA S6W"
       },
       "class": "fan",
       "capabilities": [
@@ -633,8 +635,8 @@
     },
     {
       "name": {
-        "en": "Duka One smart fan",
-        "da": "Duka One smart ventilator"
+        "en": "DUKA smart fan",
+        "da": "DUKA smart ventilator"
       },
       "class": "fan",
       "capabilities": [

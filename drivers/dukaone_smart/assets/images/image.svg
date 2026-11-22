@@ -1,13 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
-  <rect width="1000" height="1000" fill="#cd2439"/>
-  <g transform="translate(500 500) scale(0.8) translate(-480 -480)">
-    
-  <circle cx="400" cy="400" r="260" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 397.8 379.04 C 440.06 342.18 516.06 341.67 546.23 379.64 C 536.23 426.83 479.63 457.71 439.58 444.47 C 414.99 435.83 402.66 413.44 397.8 379.04 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 419.26 408.57 C 430.05 463.6 392.49 529.68 344.51 536.82 C 308.65 504.57 310.2 440.1 341.7 412.05 C 361.48 395.06 387.03 395.58 419.26 408.57 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 382.95 412.39 C 329.9 394.22 291.45 328.66 309.25 283.54 C 355.12 268.61 410.17 302.18 418.72 343.49 C 423.54 369.11 410.31 390.98 382.95 412.39 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="400" cy="400" r="56" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M760 560 C 720 620 700 660 700 700 C 700 740 730 770 770 770 C 810 770 840 740 840 700 C 840 660 800 610 760 560 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-
+  <rect width="1000" height="1000" fill="#ffffff"/>
+  <ellipse cx="500" cy="815" rx="250" ry="35" fill="#f0f0f0"/>
+  <circle cx="500" cy="450" r="290" fill="#fafafa" stroke="#d0d0d0" stroke-width="6"/>
+  <circle cx="500" cy="450" r="228" fill="none" stroke="#e4e4e4" stroke-width="6"/>
+  <circle cx="500" cy="450" r="166" fill="none" stroke="#e4e4e4" stroke-width="6"/>
+  <g fill="#ececec">
+    <path d="M500 450 C 520 360 610 320 690 350 C 650 430 580 470 500 450 Z"/>
+    <path d="M500 450 C 545 520 510 620 440 670 C 380 610 400 520 500 450 Z"/>
+    <path d="M500 450 C 420 470 330 420 310 340 C 400 320 480 370 500 450 Z"/>
   </g>
+  <circle cx="500" cy="450" r="45" fill="#cd2439"/>
+  <g stroke="#dedede" stroke-width="4">
+    <line x1="500" y1="222" x2="500" y2="350"/>
+    <line x1="500" y1="550" x2="500" y2="678"/>
+    <line x1="272" y1="450" x2="360" y2="450"/>
+    <line x1="640" y1="450" x2="728" y2="450"/>
+    <line x1="339" y1="289" x2="400" y2="350"/>
+    <line x1="600" y1="550" x2="661" y2="611"/>
+    <line x1="661" y1="289" x2="600" y2="350"/>
+    <line x1="400" y1="550" x2="339" y2="611"/>
+  </g>
+  <path d="M735 640 C 705 690 690 720 690 750 C 690 785 715 810 750 810 C 785 810 810 785 810 750 C 810 720 775 685 735 640 Z" fill="#cd2439"/>
 </svg>

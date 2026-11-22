@@ -1,67 +1,68 @@
-# Duka One for Homey
+# DUKA for Homey
 
-Unofficial [Homey Pro](https://homey.app) app for **Duka One** ventilation units
-(Duka One S6W and related models). The app talks to the unit directly over UDP
-on your local network, using the same protocol as the
+Unofficial [Homey Pro](https://homey.app) app for **DUKA** ventilation units.
+The app talks to the unit directly over UDP on your local network, using the
+same protocol as the
 [Home Assistant integration](https://github.com/dingusdk/ha-dukaone).
 
-> Not affiliated with Duka Ventilation. Use at your own risk.
+> Not affiliated with DUKA Ventilation. Use at your own risk.
+
+## Supported models
+
+- **DUKA One S6W** and related heat recovery units: fan speed, ventilation
+  mode, humidity, filter status and filter reset.
+- **DUKA smart fans** (unit type 6): boost, 24-hour mode, interval ventilation,
+  silent and maximum speed settings, humidity, room temperature and fan RPM.
+
+The app detects the model during pairing and enables only the controls that
+the unit reports.
 
 ## Features
 
-- **Fan control** from the device tile: on/off, low, medium, high and manual
-  speed via the speed slider.
-- **Ventilation mode**: in/out (heat recovery), in (supply air) and out
-  (exhaust air).
-- **Humidity sensor** from the unit's built-in sensor.
-- **Filter status** (heat recovery models): an alarm when the filter needs
-  replacing and the remaining filter lifetime in days.
-- **Filter reset** as a maintenance action on the device page.
-- **Smart fan models**: boost, 24-hour mode, interval ventilation, silent and
-  maximum speed settings, plus humidity, room temperature and fan RPM.
-- **Flow cards**: set mode, set speed, set manual speed, reset the filter timer,
-  boost, 24-hour mode, interval ventilation, speed settings, and triggers for
-  mode changes and filter alarms.
+- **Fan control** for heat recovery units: on/off, low, medium, high and manual
+  speed.
+- **Ventilation mode** for heat recovery units: in/out, in and out.
+- **Smart fan controls**: boost, 24-hour mode, interval ventilation, silent
+  and maximum speed settings.
+- **Sensors**: humidity, room temperature and fan RPM, depending on the model.
+- **Filter status**: an alarm when the filter needs replacing, the remaining
+  filter lifetime in days, and a maintenance action to reset the filter timer.
+- **Flow cards** for modes, speeds, boost, 24-hour mode, interval ventilation,
+  filter reset and the corresponding triggers.
 - **Discovery while pairing**: the app broadcasts on the local network and lists
-  the units that answer. You can also enter the device ID and IP address
+  the units of the selected model. A device ID and IP address can be entered
   manually.
-- **Per-unit capabilities**: during pairing the app detects the model and only
-  enables the capabilities that unit reports. A Duka One S6W gets the heat
-  recovery controls, a smart fan gets its own controls, and a simpler one-way
-  unit gets on/off and fan speed only.
 
 ## Requirements
 
 - Homey Pro (Early 2023 or later) or Homey Self-Hosted Server. The app needs
-  LAN access, so it does not run on Homey Cloud.
-- The Duka One unit and Homey on the same network, or a route between them.
-- The device ID and password of the unit. The device ID is shown in the Duka
-  One mobile app; the default password is `1111`.
+  LAN access and does not run on Homey Cloud.
+- The DUKA unit and Homey on the same network, or a route between them.
+- The device ID and password of the unit. The device ID is shown in the DUKA
+  mobile app; the default password is `1111`.
 
 ## Install
 
-The app is not in the Homey App Store (yet). Install it with the Homey CLI:
+The app is prepared for the Homey App Store. Until it is available there,
+install the development build with the Homey CLI:
 
 ```bash
 npm install --global homey
 homey login
 git clone https://github.com/SorenHJohansen/homey-dukaone.git
 cd homey-dukaone
-homey app run
+homey app run --remote
 ```
 
-`homey app run` builds the app, installs it on the selected Homey and streams
-the logs. Press `Ctrl+C` to stop it (this uninstalls the development build).
+`--remote` runs the app on the Homey itself, which is required for LAN access.
 Use `homey app install` to leave it installed.
 
 ## Pairing
 
-1. Open the Homey app and choose **Devices → Add device → Duka One**.
-2. Pick the device type: **Duka One S6W** for the heat recovery unit or
-   **Duka One smart fan** for the smart fan model. The search only lists units
-   of the type you picked.
-3. Press **Search**. Units that answer are listed with their device ID and IP;
-   pick one, or fill in the fields by hand.
+1. Open the Homey app and choose **Devices → Add device → DUKA**.
+2. Pick **DUKA S6W** or **DUKA smart fan**. The search only lists units of the
+   selected model.
+3. Press **Search**, or fill in the device ID and IP address manually.
 4. Enter the password (default `1111`), give the unit a name and press
    **Add device**.
 
@@ -73,40 +74,35 @@ on a different VLAN than Homey, enter its IP address manually.
 The unit listens on UDP port 4000. Packets contain the device ID, the password,
 a function code and a list of parameters, with a 16-bit checksum. The app polls
 the status every 10 seconds and after every command. Responses are also used to
-learn the unit's current IP address, so a DHCP lease change does not break the
-device.
+learn the unit's current IP address.
 
-The firmware reports a unit type. Heat recovery units (type 14 and similar) use
-the mode, filter and manual speed parameters. Smart fans (type 6) use a
-different set: boost, 24-hour mode, interval ventilation, speed limits and
-sensor settings. The app picks the right status request and capability set from
-the detected type.
+The firmware reports a unit type. Heat recovery units and smart fans use
+different parameter sets, so the app picks the right status request and
+capabilities from the detected type.
 
-The protocol implementation lives in [`lib/duka-protocol.js`](lib/duka-protocol.js),
-the network client in [`lib/duka-client.js`](lib/duka-client.js).
+The protocol implementation lives in
+[`lib/duka-protocol.js`](lib/duka-protocol.js), the network client in
+[`lib/duka-client.js`](lib/duka-client.js).
+
+## Privacy
+
+The app communicates only with the units on your local network. It does not
+send data to any cloud service and does not collect analytics.
 
 ## Development
 
 ```bash
 npm test                          # protocol unit tests
 npx homey app validate -l debug   # validate the app manifest
-npx homey app run                 # run on a Homey
+npx homey app run --remote        # run on a Homey
 ```
 
 `app.json` is generated from the files in `.homeycompose/` and
 `drivers/*/*.compose.json`. Edit those files, not `app.json`.
 
-### Troubleshooting the CLI
-
-If you run the CLI with `--path` from outside the app folder and the build
-fails with `EACCES: permission denied, mkdir '/home/tmp'`, this is a Homey CLI
-4.6.3 bug: it resolves the empty line in the output of `npm ls` against the
-current directory. Run the command from inside the app folder instead, or
-filter empty lines before `path.relative` in the CLI's `lib/NpmCommands.js`.
-
 ## Credits
 
-The Duka One protocol was reverse engineered by the
+The DUKA protocol was reverse engineered by the
 [ha-dukaone](https://github.com/dingusdk/ha-dukaone) project and its Python
 `dukaonesdk`. This app is an independent JavaScript implementation of the same
 protocol.
