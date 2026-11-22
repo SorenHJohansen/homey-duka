@@ -20,23 +20,10 @@ function buildResponse(deviceId, parameters, password = '1111') {
   return Buffer.concat([body, tail]);
 }
 
-function firmwareResponse(deviceId, unitType) {
-  return buildResponse(deviceId, [
-    0xfe,
-    0x06,
-    0x86,
-    0x02,
-    0x02,
-    0x10,
-    0x06,
-    0xe6,
-    0x07,
-    0xfe,
-    0x02,
-    0xb9,
-    unitType,
-    0x00,
-  ]);
+function firmwareResponse(deviceId, unitType = null) {
+  const parameters = [0xfe, 0x06, 0x86, 0x02, 0x02, 0x10, 0x06, 0xe6, 0x07];
+  if (unitType !== null) parameters.push(0xfe, 0x02, 0xb9, unitType, 0x00);
+  return buildResponse(deviceId, parameters);
 }
 
 function searchResponse(deviceId, searchId, unitType = null) {
@@ -120,6 +107,7 @@ class FakeSocket extends EventEmitter {
     this.port = 4000;
     this.sent = [];
     this.closed = false;
+    this.failSend = false;
     this.onSend = null;
   }
 
@@ -135,6 +123,10 @@ class FakeSocket extends EventEmitter {
   }
 
   send(packet, offset, length, port, address, callback) {
+    if (this.failSend) {
+      setImmediate(() => callback(new Error('send failed')));
+      return;
+    }
     const buffer = Buffer.from(packet);
     this.sent.push({ packet: buffer, address, port });
     setImmediate(() => {

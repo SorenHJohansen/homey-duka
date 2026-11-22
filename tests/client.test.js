@@ -103,7 +103,7 @@ test('probe discovers the address without broadcasting credentials', async () =>
 
   assert.equal(info.address, '192.0.2.10');
   assert.ok(
-    socket.sent.some((entry) => entry.address === '192.0.2.10' && entry.packet.includes(0x86)),
+    socket.sent.some((entry) => entry.address === '192.0.2.10' && entry.packet.includes(0xb7)),
   );
 
   const broadcast = new Set(['255.255.255.255', '192.0.2.255']);
@@ -112,6 +112,29 @@ test('probe discovers the address without broadcasting credentials', async () =>
     assert.ok(!entry.packet.includes(0x86), 'firmware request was broadcast');
     assert.ok(!entry.packet.includes(0xb7), 'status request was broadcast');
   }
+});
+
+test('probe falls back to the selected family when no unit type is reported', async () => {
+  const { client, socket } = makeClient();
+
+  socket.onSend = (packet) => {
+    if (packet.includes(0x86)) socket.message(firmwareResponse(DEVICE));
+    else if (packet.includes(0xb7)) socket.message(s6wStatusResponse(DEVICE));
+  };
+
+  const info = await client.probe({
+    id: DEVICE,
+    password: '1111',
+    address: '192.0.2.10',
+    family: 's6w',
+    timeoutMs: 2000,
+  });
+  await client.stop();
+
+  assert.equal(info.family, 's6w');
+  assert.equal(info.unitType, null);
+  assert.equal(info.isOn, true);
+  assert.equal(info.manualSpeed, 128);
 });
 
 test('probe does not return before the status reply', async () => {
@@ -209,6 +232,21 @@ function makePairHandlers(searchResults, probeResult) {
   createPairHandlers(driver, session, 's6w');
   return handlers;
 }
+
+test('commands reject when the socket send fails', async () => {
+  const { client, socket } = makeClient();
+  await client.start();
+  const device = client._ensureDevice({
+    id: DEVICE,
+    password: '1111',
+    address: '192.0.2.10',
+    family: 's6w',
+  });
+
+  socket.failSend = true;
+  await assert.rejects(client.turnOn(device), /send failed/);
+  await client.stop();
+});
 
 test('pair search keeps unknown families and drops known mismatches', async () => {
   const handlers = makePairHandlers(

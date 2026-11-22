@@ -4,7 +4,7 @@ const Homey = require('homey');
 
 const { createPairHandlers } = require('../../lib/duka-pair');
 
-class DukaOneSmartDriver extends Homey.Driver {
+class DukaSmartDriver extends Homey.Driver {
   async onInit() {
     const setBoost = this.homey.flow.getActionCard('set_boost');
     setBoost.registerRunListener(async (args) => {
@@ -37,4 +37,4 @@ class DukaOneSmartDriver extends Homey.Driver {
   }
 }
 
-module.exports = DukaOneSmartDriver;
+module.exports = DukaSmartDriver;
