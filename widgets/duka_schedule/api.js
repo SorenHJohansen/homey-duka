@@ -13,7 +13,7 @@ function deviceFor(homey, deviceId) {
 module.exports = {
   async getSchedule({ homey, query }) {
     const device = deviceFor(homey, query.deviceId);
-    const entries = await device.readScheduleEntries();
+    const entries = await device.readScheduleQueued();
     return {
       schedule: device.getCapabilityValue('duka_schedule') === true,
       entries,

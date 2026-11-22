@@ -138,7 +138,6 @@ test('the S6W exposes the unit settings', () => {  const settings = read('driver
 
   for (const id of [
     'humidity_sensor',
-    'humidity_threshold',
     'analog_sensor',
     'analog_threshold',
     'relay_sensor',
@@ -158,8 +157,6 @@ test('the S6W exposes the unit settings', () => {  const settings = read('driver
     assert.ok(byId.has(id), `missing setting ${id}`);
   }
 
-  assert.equal(byId.get('humidity_threshold').min, 40);
-  assert.equal(byId.get('humidity_threshold').max, 80);
   assert.equal(byId.get('filter_interval').max, 365);
 });
 

@@ -313,6 +313,66 @@ test('humidity changes below 5 points do not emit an update', async () => {  con
   await client.stop();
 });
 
+test('readSchedule collects the whole week and rejects a partial week', async () => {
+  const socket = new FakeSocket();
+  const client = new DukaClient({
+    createSocket: () => socket,
+    delay: fastDelay,
+    broadcastAddresses: () => ['192.0.2.255'],
+  });
+  await client.start();
+  const device = client._ensureDevice({
+    id: DEVICE,
+    password: '1111',
+    address: '192.0.2.10',
+    family: 's6w',
+  });
+
+  socket.onSend = (packet) => {
+    for (let i = 0; i < packet.length - 5; i += 1) {
+      if (packet[i] !== 0xfe || packet[i + 1] !== 0x02 || packet[i + 2] !== 0x77) continue;
+      const weekday = packet[i + 3];
+      const period = packet[i + 4];
+      socket.message(
+        buildResponse(DEVICE, [0xfe, 0x06, 0x77, weekday, period, 1, 0, 0, 6]),
+      );
+    }
+  };
+
+  const entries = await client.readSchedule(device);
+  assert.equal(entries.length, 28);
+  assert.equal(entries[0].weekday, 1);
+  assert.equal(entries[entries.length - 1].weekday, 7);
+  await client.stop();
+});
+
+test('readSchedule rejects a week with missing days', async () => {
+  const socket = new FakeSocket();
+  const client = new DukaClient({
+    createSocket: () => socket,
+    delay: fastDelay,
+    broadcastAddresses: () => ['192.0.2.255'],
+  });
+  await client.start();
+  const device = client._ensureDevice({
+    id: DEVICE,
+    password: '1111',
+    address: '192.0.2.10',
+    family: 's6w',
+  });
+
+  socket.onSend = (packet) => {
+    const index = packet.indexOf(0x77);
+    if (index < 0 || packet[index + 1] !== 1) return;
+    for (let period = 1; period <= 4; period += 1) {
+      socket.message(buildResponse(DEVICE, [0xfe, 0x06, 0x77, 1, period, 1, 0, 0, 6]));
+    }
+  };
+
+  await assert.rejects(client.readSchedule(device, 300), /Incomplete schedule/);
+  await client.stop();
+});
+
 test('pair search keeps unknown families and drops known mismatches', async () => {
   const handlers = makePairHandlers(
     [

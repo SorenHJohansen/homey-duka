@@ -19,7 +19,7 @@ function fakeHomey(device) {
 test('the widget returns the schedule and its state', async () => {
   const device = {
     entries: [{ weekday: 1, period: 1, speed: 1, minutes: 0, hours: 6, reserved: 0 }],
-    async readScheduleEntries() {
+    async readScheduleQueued() {
       return this.entries;
     },
     getCapabilityValue: () => true,
@@ -47,9 +47,29 @@ test('the widget writes one entry and returns the fresh schedule', async () => {
   });
 
   assert.deepEqual(written, [
-    { weekday: 2, period: 3, speed: 2, reserved: 0, minutes: 30, hours: 6 },
+    { weekday: 2, period: 3, speed: 2, reserved: undefined, minutes: 30, hours: 6 },
   ]);
   assert.equal(result.entries[0].period, 3);
+});
+
+test('the widget keeps the reserved byte it was given', async () => {
+  const written = [];
+  const device = {
+    async setSchedulePeriod(entry) {
+      written.push(entry);
+      return [entry];
+    },
+  };
+
+  await api.setEntry({
+    homey: fakeHomey(device),
+    body: {
+      deviceId: 'abc',
+      entry: { weekday: 1, period: 1, speed: 1, hours: 6, minutes: 0, reserved: 15 },
+    },
+  });
+
+  assert.equal(written[0].reserved, 15);
 });
 
 test('the widget rejects an entry that is out of range', async () => {

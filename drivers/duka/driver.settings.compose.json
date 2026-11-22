@@ -17,20 +17,6 @@
         }
       },
       {
-        "id": "humidity_threshold",
-        "type": "number",
-        "label": {
-          "en": "Humidity setpoint"
-        },
-        "value": 70,
-        "min": 40,
-        "max": 80,
-        "step": 1,
-        "units": {
-          "en": "%RH"
-        }
-      },
-      {
         "id": "analog_sensor",
         "type": "checkbox",
         "label": {

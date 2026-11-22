@@ -502,6 +502,7 @@ test('schedule writes keep the reserved byte and reject bad entries', () => {
     { weekday: 1, period: 1, speed: 1, minutes: 0, hours: 25 },
     { weekday: 1, period: 1, speed: 1, minutes: 0, hours: 24.5 },
     { weekday: 1, period: 1, speed: 1, minutes: 30, hours: 24 },
+    { weekday: 1, period: 2, speed: 1, minutes: 0, hours: 24 },
   ]) {
     assert.throws(() => protocol.scheduleEntryWritePacket(DEVICE, bad));
   }

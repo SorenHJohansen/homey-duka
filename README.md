@@ -40,9 +40,9 @@ unit types are rejected as unsupported.
   and 0-10 V setpoints, boost run time, night and party durations, filter
   replacement interval, and the six fan stage speeds.
 - **Weekly schedule** for heat recovery units: the whole week is read from the
-  unit and shown on the device, the schedule can be switched on and off, a
-  Flow action writes one day and period at a time, and a dashboard widget
-  shows the week as a 7 by 4 grid where every period can be edited.
+  unit, the schedule can be switched on and off, a Flow action writes one day
+  and period at a time, and a dashboard widget shows the week as a 7 by 4 grid
+  where every period can be edited.
 - **Smart fan controls**: boost, 24-hour mode, interval ventilation and its
   percentage, silent and maximum speed settings, silent mode with its window,
   humidity and temperature control modes and setpoints, the external switch
