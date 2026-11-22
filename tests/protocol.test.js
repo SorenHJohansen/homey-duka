@@ -24,7 +24,7 @@ function buildResponse(deviceId, password, parameters) {
 }
 
 // The expected packets below were produced with the reference Python
-// implementation (dukasdk) so the encoder can be checked byte for byte.
+// implementation (dukaonesdk) so the encoder can be checked byte for byte.
 
 test('search packet matches the reference implementation', () => {
   assert.equal(

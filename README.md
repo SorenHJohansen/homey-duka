@@ -5,7 +5,7 @@
 Unofficial [Homey Pro](https://homey.app) app for **DUKA** ventilation units.
 The app talks to the unit directly over UDP on your local network, using the
 same protocol as the
-[Home Assistant integration](https://github.com/dingusdk/ha-duka).
+[Home Assistant integration](https://github.com/dingusdk/ha-dukaone).
 
 > Not affiliated with DUKA Ventilation. Use at your own risk.
 
@@ -150,10 +150,16 @@ https://tools.developer.homey.app/me.
 
 ## Credits
 
-The DUKA protocol was reverse engineered by the
-[ha-duka](https://github.com/dingusdk/ha-duka) project and its Python
-`dukasdk`. This app is an independent JavaScript implementation of the same
-protocol.
+The DUKA One S6W protocol was reverse engineered by
+[dukaonesdk](https://github.com/dingusdk/dukaonesdk) and the
+[ha-dukaone](https://github.com/dingusdk/ha-dukaone) Home Assistant
+integration. The smart fan parameter names follow
+[duka_smartfan_sdk](https://github.com/syre/duka_smartfan_sdk). The extended
+parameter set, the parameter pages and the weekly schedule follow the
+manufacturer's Smart Home connection guide for the Blauberg VENTO units that
+the DUKA units are based on, with the parameter table collected in
+[duka_connect](https://github.com/HairingX/duka_connect). This app is an
+independent JavaScript implementation of the same protocol.
 
 ## License
 
