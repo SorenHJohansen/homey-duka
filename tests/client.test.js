@@ -8,6 +8,7 @@ const { createPairHandlers } = require('../lib/duka-pair');
 const { familyForUnitType, matchesFamily } = require('../lib/duka-family');
 const {
   FakeSocket,
+  buildResponse,
   firmwareResponse,
   searchResponse,
   s6wStatusResponse,
@@ -282,6 +283,33 @@ test('commands reject when the socket send fails', async () => {
 
   socket.failSend = true;
   await assert.rejects(client.turnOn(device), /send failed/);
+  await client.stop();
+});
+
+test('humidity changes below 5 points do not emit an update', async () => {  const { client, socket } = makeClient();
+  await client.start();
+  client.registerDevice({
+    id: DEVICE,
+    password: '1111',
+    address: '192.0.2.10',
+    family: 's6w',
+  });
+
+  const published = [];
+  client.on('update', (device) => {
+    if (published[published.length - 1] !== device.humidity) published.push(device.humidity);
+  });
+
+  const status = (humidity) =>
+    buildResponse(DEVICE, [0x01, 0x01, 0xb7, 0x00, 0x02, 0x01, 0x25, humidity]);
+
+  socket.message(status(60));
+  socket.message(status(62));
+  socket.message(status(58));
+  socket.message(status(55));
+  socket.message(status(56));
+
+  assert.deepEqual(published, [60, 55]);
   await client.stop();
 });
 

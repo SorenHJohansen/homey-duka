@@ -8,6 +8,7 @@ const {
   changedByAtLeast,
   TEMPERATURE_STEP,
   RPM_STEP,
+  HUMIDITY_STEP,
 } = require('../lib/duka-values');
 const { pollIntervalForAge, firmwareRetryInterval } = require('../lib/duka-backoff');
 
@@ -26,6 +27,15 @@ test('rpm uses a 100 rpm deadband and treats zero as a state change', () => {
   assert.equal(changedByAtLeast(0, 60, RPM_STEP, true), false);
   assert.equal(changedByAtLeast(120, 0, RPM_STEP, true), true);
   assert.equal(changedByAtLeast(0, 0, RPM_STEP, true), false);
+});
+
+test('humidity uses a 5 point deadband', () => {
+  assert.equal(HUMIDITY_STEP, 5);
+  assert.equal(changedByAtLeast(60, 62, HUMIDITY_STEP), false);
+  assert.equal(changedByAtLeast(60, 64, HUMIDITY_STEP), false);
+  assert.equal(changedByAtLeast(60, 65, HUMIDITY_STEP), true);
+  assert.equal(changedByAtLeast(60, 55, HUMIDITY_STEP), true);
+  assert.equal(changedByAtLeast(null, 45, HUMIDITY_STEP), true);
 });
 
 test('polling backs off for offline units', () => {
