@@ -10,5 +10,8 @@
   "0.2.1": {
     "en": "Reduce unnecessary updates and traffic: round temperature to 0.1 C, add a 100 rpm deadband, coalesce status refreshes, debounce sliders, serialize commands per device, and back off polling and firmware retries.",
     "da": "Reducer unødvendige opdateringer og trafik: temperatur afrundes til 0,1 C, 100 omdr./min. dødbånd, samlede statusopdateringer, debounce på skydere, serielle kommandoer pr. enhed og længere intervaller for offline enheder og firmwareforsøg."
+  },
+  "1.0.0": {
+    "en": "New app"
   }
 }
