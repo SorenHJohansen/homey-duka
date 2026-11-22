@@ -1,0 +1,19 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Humidity boost",
+    "da": "Fugtboost"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "The humidity is over the setpoint",
+    "da": "Luftfugtigheden er over setpunktet"
+  },
+  "insightsTitleFalse": {
+    "en": "The humidity is below the setpoint",
+    "da": "Luftfugtigheden er under setpunktet"
+  }
+}

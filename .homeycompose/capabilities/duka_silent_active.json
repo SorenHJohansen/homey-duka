@@ -1,0 +1,19 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Silent mode running",
+    "da": "Lydsvag tilstand aktiv"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "The fan runs in silent mode",
+    "da": "Blæseren kører lydsvagt"
+  },
+  "insightsTitleFalse": {
+    "en": "The fan does not run in silent mode",
+    "da": "Blæseren kører ikke lydsvagt"
+  }
+}

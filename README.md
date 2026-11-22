@@ -11,12 +11,17 @@ same protocol as the
 
 ## Supported models
 
-- **DUKA One S6W** (unit type 14): fan speed, ventilation mode, humidity,
-  filter status and filter reset.
+- **DUKA One S6W** (unit type 14): fan speed and manual speed, ventilation
+  mode, humidity, night and party timers, the humidity, relay and 0-10 V sensor
+  inputs with their setpoints, boost delay, filter interval and filter reset,
+  and the weekly schedule.
 - **DUKA smart fans** (unit type 6): boost, 24-hour mode, interval ventilation,
-  silent and maximum speed settings, humidity, room temperature and fan RPM.
-  The running speed is automatic; silent and maximum define its limits, and
-  the current RPM is shown.
+  silent and maximum speed settings, humidity and temperature control with
+  setpoints, the external switch input, the silent window with its start and
+  end time, turn-on and turn-off delays, humidity, room temperature, fan RPM
+  and the boost countdown. The running speed is automatic; silent and maximum
+  define its limits, and the current RPM is shown and recorded in Homey
+  Insights.
 
 The app detects the model during pairing and uses the matching driver. Other
 unit types are rejected as unsupported.
@@ -26,13 +31,32 @@ unit types are rejected as unsupported.
 - **Fan control** for heat recovery units: on/off, low, medium, high and manual
   speed.
 - **Ventilation mode** for heat recovery units: in/out, in and out.
-- **Smart fan controls**: boost, 24-hour mode, interval ventilation, silent
-  and maximum speed settings.
+- **Timer modes** for heat recovery units: off, night and party, with the
+  remaining time shown and both durations set in the device settings.
+- **Sensor inputs** for heat recovery units: humidity, relay and 0-10 V, each
+  with an enable switch, a setpoint and a state that shows when the input is
+  above its setpoint.
+- **Configuration** for heat recovery units in the device settings: humidity
+  and 0-10 V setpoints, boost run time, night and party durations, filter
+  replacement interval, and the six fan stage speeds.
+- **Weekly schedule** for heat recovery units: the whole week is read from the
+  unit and shown on the device, the schedule can be switched on and off, a
+  Flow action writes one day and period at a time, and a dashboard widget
+  shows the week as a 7 by 4 grid where every period can be edited.
+- **Smart fan controls**: boost, 24-hour mode, interval ventilation and its
+  percentage, silent and maximum speed settings, silent mode with its window,
+  humidity and temperature control modes and setpoints, the external switch
+  input, and the turn-on and turn-off delays, all in the device settings.
+  Boost remaining, silent mode running and interval ventilation running are
+  shown on the device, and a motion sensor row appears only when the unit
+  reports one.
 - **Sensors**: humidity, room temperature and fan RPM, depending on the model.
+  The fan RPM is recorded in Homey Insights, so you can see when the fan ran
+  and how fast.
 - **Filter status**: an alarm when the filter needs replacing, the remaining
   filter lifetime in days, and a maintenance action to reset the filter timer.
-- **Flow cards** for modes, speeds, boost, 24-hour mode, interval ventilation,
-  filter reset and the corresponding triggers.
+- **Flow cards** for modes, speeds, timer mode, schedule, boost, 24-hour mode,
+  interval ventilation, filter reset and the corresponding triggers.
 - **Discovery while pairing**: the app broadcasts on the local network and lists
   the units of the selected model. A device ID and IP address can be entered
   manually.
@@ -83,6 +107,12 @@ learn the unit's current IP address.
 The firmware reports a unit type. Heat recovery units and smart fans use
 different parameter sets, so the app picks the right status request and
 capabilities from the detected type.
+
+Parameters carry a page number, and replies can contain size markers and
+"not supported" markers. The heat recovery unit is asked for its whole
+parameter set, including page 3, in one packet. The weekly schedule is not part
+of the status reply: it is read as one day per packet, four periods at a time,
+at startup and once an hour.
 
 The protocol implementation lives in
 [`lib/duka-protocol.js`](lib/duka-protocol.js), the network client in

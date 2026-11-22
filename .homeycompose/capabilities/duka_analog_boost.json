@@ -1,0 +1,19 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "0-10 V boost",
+    "da": "0-10 V boost"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "The 0-10 V input is over the setpoint",
+    "da": "0-10 V indgangen er over setpunktet"
+  },
+  "insightsTitleFalse": {
+    "en": "The 0-10 V input is below the setpoint",
+    "da": "0-10 V indgangen er under setpunktet"
+  }
+}

@@ -24,5 +24,25 @@
       "wrong_model_smart": "Denne enhed er en DUKA S6W. Tilføj den under DUKA S6W.",
       "unsupported_model": "Denne DUKA-model understøttes ikke."
     }
+  },
+  "widget": {
+    "schedule": {
+      "title": "Ugeprogram",
+      "period": "Periode",
+      "speed": "Hastighed",
+      "standby": "Standby",
+      "refresh": "Opdater",
+      "hint": "Hver periode slutter på det angivne tidspunkt og kører med sin hastighed indtil da. 00:00 i den sidste periode betyder 24:00.",
+      "noDevice": "Vælg en DUKA S6W i widgetindstillingerne.",
+      "saving": "Gemmer...",
+      "failed": "Kunne ikke gemme.",
+      "mon": "Man",
+      "tue": "Tir",
+      "wed": "Ons",
+      "thu": "Tor",
+      "fri": "Fre",
+      "sat": "Lør",
+      "sun": "Søn"
+    }
   }
 }

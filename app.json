@@ -404,6 +404,329 @@
         ]
       },
       {
+        "id": "set_timer_mode",
+        "title": {
+          "en": "Set the timer mode",
+          "da": "Indstil timertilstand"
+        },
+        "titleFormatted": {
+          "en": "Set the timer mode to [[mode]]",
+          "da": "Indstil timertilstand til [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=duka"
+          },
+          {
+            "type": "dropdown",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "da": "Tilstand"
+            },
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "da": "Fra"
+                }
+              },
+              {
+                "id": "night",
+                "title": {
+                  "en": "Night",
+                  "da": "Nat"
+                }
+              },
+              {
+                "id": "party",
+                "title": {
+                  "en": "Party",
+                  "da": "Fest"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_schedule",
+        "title": {
+          "en": "Set the weekly schedule",
+          "da": "Indstil ugeprogrammet"
+        },
+        "titleFormatted": {
+          "en": "Turn the weekly schedule [[state]]",
+          "da": "Slå ugeprogrammet [[state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=duka"
+          },
+          {
+            "type": "dropdown",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "da": "Tilstand"
+            },
+            "values": [
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "da": "Til"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "da": "Fra"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_schedule_period",
+        "title": {
+          "en": "Set a schedule period",
+          "da": "Indstil en periode i ugeprogrammet"
+        },
+        "titleFormatted": {
+          "en": "Set [[weekday]] period [[period]] to [[speed]] ending at [[hours]]:[[minutes]]",
+          "da": "Indstil [[weekday]] periode [[period]] til [[speed]] der slutter [[hours]]:[[minutes]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=duka"
+          },
+          {
+            "type": "dropdown",
+            "name": "weekday",
+            "title": {
+              "en": "Day",
+              "da": "Dag"
+            },
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "All days",
+                  "da": "Alle dage"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Monday",
+                  "da": "Mandag"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Tuesday",
+                  "da": "Tirsdag"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Wednesday",
+                  "da": "Onsdag"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Thursday",
+                  "da": "Torsdag"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "Friday",
+                  "da": "Fredag"
+                }
+              },
+              {
+                "id": "6",
+                "title": {
+                  "en": "Saturday",
+                  "da": "Lørdag"
+                }
+              },
+              {
+                "id": "7",
+                "title": {
+                  "en": "Sunday",
+                  "da": "Søndag"
+                }
+              },
+              {
+                "id": "8",
+                "title": {
+                  "en": "Monday to Friday",
+                  "da": "Mandag til fredag"
+                }
+              },
+              {
+                "id": "9",
+                "title": {
+                  "en": "Saturday and Sunday",
+                  "da": "Lørdag og søndag"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "period",
+            "title": {
+              "en": "Period",
+              "da": "Periode"
+            },
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "1",
+                  "da": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2",
+                  "da": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3",
+                  "da": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4",
+                  "da": "4"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "speed",
+            "title": {
+              "en": "Speed",
+              "da": "Hastighed"
+            },
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Standby",
+                  "da": "Standby"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1",
+                  "da": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2",
+                  "da": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3",
+                  "da": "3"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "hours",
+            "title": {
+              "en": "Hours",
+              "da": "Timer"
+            },
+            "min": 0,
+            "max": 24,
+            "step": 1,
+            "placeholder": {
+              "en": "0",
+              "da": "0"
+            }
+          },
+          {
+            "type": "number",
+            "name": "minutes",
+            "title": {
+              "en": "Minutes",
+              "da": "Minutter"
+            },
+            "min": 0,
+            "max": 59,
+            "step": 1,
+            "placeholder": {
+              "en": "0",
+              "da": "0"
+            }
+          }
+        ]
+      },
+      {
+        "id": "read_schedule",
+        "title": {
+          "en": "Read the weekly schedule",
+          "da": "Læs ugeprogrammet"
+        },
+        "tokens": [
+          {
+            "name": "summary",
+            "type": "string",
+            "title": {
+              "en": "Schedule",
+              "da": "Ugeprogram"
+            },
+            "example": {
+              "en": "Mon 06:00 S1, 09:00 S1; Tue 06:00 S1, 09:00 S1",
+              "da": "Man 06:00 S1, 09:00 S1; Tir 06:00 S1, 09:00 S1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=duka"
+          }
+        ]
+      },
+      {
         "id": "set_boost",
         "title": {
           "en": "Set boost",
@@ -603,6 +926,15 @@
         "dim",
         "measure_humidity",
         "duka_mode",
+        "duka_timer_mode",
+        "duka_timer_minutes",
+        "duka_schedule",
+        "duka_schedule_text",
+        "duka_analog_level",
+        "duka_humidity_boost",
+        "duka_analog_boost",
+        "duka_relay_active",
+        "alarm_generic",
         "alarm_filter",
         "duka_filter_days",
         "button.reset_filter"
@@ -642,7 +974,252 @@
           "id": "start"
         }
       ],
-      "id": "duka"
+      "id": "duka",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Sensors"
+          },
+          "children": [
+            {
+              "id": "humidity_sensor",
+              "type": "checkbox",
+              "label": {
+                "en": "Humidity sensor"
+              },
+              "value": true,
+              "hint": {
+                "en": "Let the humidity sensor start boost when the setpoint is exceeded."
+              }
+            },
+            {
+              "id": "humidity_threshold",
+              "type": "number",
+              "label": {
+                "en": "Humidity setpoint"
+              },
+              "value": 70,
+              "min": 40,
+              "max": 80,
+              "step": 1,
+              "units": {
+                "en": "%RH"
+              }
+            },
+            {
+              "id": "analog_sensor",
+              "type": "checkbox",
+              "label": {
+                "en": "0-10 V sensor"
+              },
+              "value": false,
+              "hint": {
+                "en": "Let the 0-10 V input start boost when the setpoint is exceeded."
+              }
+            },
+            {
+              "id": "analog_threshold",
+              "type": "number",
+              "label": {
+                "en": "0-10 V setpoint"
+              },
+              "value": 50,
+              "min": 5,
+              "max": 100,
+              "step": 1,
+              "units": {
+                "en": "%"
+              }
+            },
+            {
+              "id": "relay_sensor",
+              "type": "checkbox",
+              "label": {
+                "en": "Relay input"
+              },
+              "value": false,
+              "hint": {
+                "en": "Let a closed relay input start boost."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Timers"
+          },
+          "children": [
+            {
+              "id": "boost_delay",
+              "type": "number",
+              "label": {
+                "en": "Boost run time"
+              },
+              "value": 30,
+              "min": 0,
+              "max": 60,
+              "step": 1,
+              "units": {
+                "en": "min"
+              }
+            },
+            {
+              "id": "night_minutes",
+              "type": "number",
+              "label": {
+                "en": "Night mode minutes"
+              },
+              "value": 0,
+              "min": 0,
+              "max": 59,
+              "step": 1,
+              "units": {
+                "en": "min"
+              }
+            },
+            {
+              "id": "night_hours",
+              "type": "number",
+              "label": {
+                "en": "Night mode hours"
+              },
+              "value": 8,
+              "min": 0,
+              "max": 23,
+              "step": 1,
+              "units": {
+                "en": "h"
+              }
+            },
+            {
+              "id": "party_minutes",
+              "type": "number",
+              "label": {
+                "en": "Party mode minutes"
+              },
+              "value": 0,
+              "min": 0,
+              "max": 59,
+              "step": 1,
+              "units": {
+                "en": "min"
+              }
+            },
+            {
+              "id": "party_hours",
+              "type": "number",
+              "label": {
+                "en": "Party mode hours"
+              },
+              "value": 4,
+              "min": 0,
+              "max": 23,
+              "step": 1,
+              "units": {
+                "en": "h"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Filter"
+          },
+          "children": [
+            {
+              "id": "filter_interval",
+              "type": "number",
+              "label": {
+                "en": "Filter replacement interval"
+              },
+              "value": 365,
+              "min": 70,
+              "max": 365,
+              "step": 1,
+              "units": {
+                "en": "days"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Fan stage speeds"
+          },
+          "children": [
+            {
+              "id": "supply_speed_1",
+              "type": "number",
+              "label": {
+                "en": "Supply speed 1"
+              },
+              "value": 40,
+              "min": 10,
+              "max": 255,
+              "step": 1
+            },
+            {
+              "id": "exhaust_speed_1",
+              "type": "number",
+              "label": {
+                "en": "Exhaust speed 1"
+              },
+              "value": 35,
+              "min": 10,
+              "max": 255,
+              "step": 1
+            },
+            {
+              "id": "supply_speed_2",
+              "type": "number",
+              "label": {
+                "en": "Supply speed 2"
+              },
+              "value": 90,
+              "min": 10,
+              "max": 255,
+              "step": 1
+            },
+            {
+              "id": "exhaust_speed_2",
+              "type": "number",
+              "label": {
+                "en": "Exhaust speed 2"
+              },
+              "value": 80,
+              "min": 10,
+              "max": 255,
+              "step": 1
+            },
+            {
+              "id": "supply_speed_3",
+              "type": "number",
+              "label": {
+                "en": "Supply speed 3"
+              },
+              "value": 140,
+              "min": 10,
+              "max": 255,
+              "step": 1
+            },
+            {
+              "id": "exhaust_speed_3",
+              "type": "number",
+              "label": {
+                "en": "Exhaust speed 3"
+              },
+              "value": 130,
+              "min": 10,
+              "max": 255,
+              "step": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -659,7 +1236,10 @@
         "duka_interval",
         "duka_silent_speed",
         "duka_max_speed",
-        "duka_fan_rpm"
+        "duka_fan_rpm",
+        "duka_boost_minutes",
+        "duka_silent_active",
+        "duka_interval_active"
       ],
       "images": {
         "small": "/drivers/duka_smart/assets/images/small.png",
@@ -677,9 +1257,320 @@
           "id": "start"
         }
       ],
-      "id": "duka_smart"
+      "id": "duka_smart",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Sensors",
+            "da": "Sensorer"
+          },
+          "children": [
+            {
+              "id": "humidity_mode",
+              "type": "dropdown",
+              "label": {
+                "en": "Humidity control",
+                "da": "Fugtstyring"
+              },
+              "value": "auto",
+              "values": [
+                {
+                  "id": "off",
+                  "label": {
+                    "en": "Off",
+                    "da": "Fra"
+                  }
+                },
+                {
+                  "id": "auto",
+                  "label": {
+                    "en": "Automatic",
+                    "da": "Automatisk"
+                  }
+                },
+                {
+                  "id": "manual",
+                  "label": {
+                    "en": "Manual",
+                    "da": "Manuel"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "humidity_setpoint",
+              "type": "number",
+              "label": {
+                "en": "Humidity setpoint",
+                "da": "Fugtsetpunkt"
+              },
+              "value": 76,
+              "min": 30,
+              "max": 100,
+              "step": 1,
+              "units": {
+                "en": "%RH",
+                "da": "%RF"
+              }
+            },
+            {
+              "id": "temperature_mode",
+              "type": "dropdown",
+              "label": {
+                "en": "Temperature control",
+                "da": "Temperaturstyring"
+              },
+              "value": "off",
+              "values": [
+                {
+                  "id": "off",
+                  "label": {
+                    "en": "Off",
+                    "da": "Fra"
+                  }
+                },
+                {
+                  "id": "on",
+                  "label": {
+                    "en": "On",
+                    "da": "Til"
+                  }
+                },
+                {
+                  "id": "invert",
+                  "label": {
+                    "en": "Inverted",
+                    "da": "Omvendt"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "temperature_setpoint",
+              "type": "number",
+              "label": {
+                "en": "Temperature setpoint",
+                "da": "Temperatursetpunkt"
+              },
+              "value": 24,
+              "min": 18,
+              "max": 36,
+              "step": 1,
+              "units": {
+                "en": "°C",
+                "da": "°C"
+              }
+            },
+            {
+              "id": "switch_mode",
+              "type": "dropdown",
+              "label": {
+                "en": "External switch",
+                "da": "Ekstern kontakt"
+              },
+              "value": "off",
+              "values": [
+                {
+                  "id": "off",
+                  "label": {
+                    "en": "Off",
+                    "da": "Fra"
+                  }
+                },
+                {
+                  "id": "on",
+                  "label": {
+                    "en": "On",
+                    "da": "Til"
+                  }
+                },
+                {
+                  "id": "invert",
+                  "label": {
+                    "en": "Inverted",
+                    "da": "Omvendt"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Ventilation",
+            "da": "Ventilation"
+          },
+          "children": [
+            {
+              "id": "interval_percentage",
+              "type": "number",
+              "label": {
+                "en": "Interval ventilation percentage",
+                "da": "Intervalventilation i procent"
+              },
+              "value": 70,
+              "min": 30,
+              "max": 100,
+              "step": 1,
+              "units": {
+                "en": "%",
+                "da": "%"
+              }
+            },
+            {
+              "id": "silent_enabled",
+              "type": "checkbox",
+              "label": {
+                "en": "Silent mode",
+                "da": "Lydsvag tilstand"
+              },
+              "value": true
+            },
+            {
+              "id": "silent_start",
+              "type": "text",
+              "label": {
+                "en": "Silent window starts",
+                "da": "Lydsvagt vindue starter"
+              },
+              "value": "22:00",
+              "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+              "hint": {
+                "en": "Use HH:MM.",
+                "da": "Brug TT:MM."
+              }
+            },
+            {
+              "id": "silent_end",
+              "type": "text",
+              "label": {
+                "en": "Silent window ends",
+                "da": "Lydsvagt vindue slutter"
+              },
+              "value": "05:45",
+              "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+              "hint": {
+                "en": "Use HH:MM.",
+                "da": "Brug TT:MM."
+              }
+            },
+            {
+              "id": "turn_off_delay",
+              "type": "dropdown",
+              "label": {
+                "en": "Turn off delay",
+                "da": "Forsinket stop"
+              },
+              "value": "2",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Off",
+                    "da": "Fra"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "5 minutes",
+                    "da": "5 minutter"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "15 minutes",
+                    "da": "15 minutter"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "30 minutes",
+                    "da": "30 minutter"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "60 minutes",
+                    "da": "60 minutter"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "turn_on_delay",
+              "type": "dropdown",
+              "label": {
+                "en": "Turn on delay",
+                "da": "Forsinket start"
+              },
+              "value": "1",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Off",
+                    "da": "Fra"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "2 minutes",
+                    "da": "2 minutter"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "5 minutes",
+                    "da": "5 minutter"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
+  "widgets": {
+    "duka_schedule": {
+      "name": {
+        "en": "DUKA schedule",
+        "da": "DUKA ugeprogram"
+      },
+      "devices": {
+        "type": "app",
+        "singular": true,
+        "filter": {
+          "capabilities": "duka_schedule_text"
+        }
+      },
+      "height": 540,
+      "api": {
+        "getSchedule": {
+          "method": "GET",
+          "path": "/"
+        },
+        "setEntry": {
+          "method": "PUT",
+          "path": "/entry"
+        },
+        "setSchedule": {
+          "method": "PUT",
+          "path": "/schedule"
+        }
+      },
+      "id": "duka_schedule",
+      "settings": []
+    }
+  },
   "capabilities": {
     "alarm_filter": {
       "type": "boolean",
@@ -709,6 +1600,43 @@
       "setable": true,
       "uiComponent": "toggle"
     },
+    "duka_analog_boost": {
+      "type": "boolean",
+      "title": {
+        "en": "0-10 V boost",
+        "da": "0-10 V boost"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "The 0-10 V input is over the setpoint",
+        "da": "0-10 V indgangen er over setpunktet"
+      },
+      "insightsTitleFalse": {
+        "en": "The 0-10 V input is below the setpoint",
+        "da": "0-10 V indgangen er under setpunktet"
+      }
+    },
+    "duka_analog_level": {
+      "type": "number",
+      "title": {
+        "en": "0-10 V input",
+        "da": "0-10 V indgang"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "units": {
+        "en": "%",
+        "da": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "decimals": 0
+    },
     "duka_boost": {
       "type": "boolean",
       "title": {
@@ -720,6 +1648,24 @@
       "uiComponent": "toggle",
       "uiQuickAction": true
     },
+    "duka_boost_minutes": {
+      "type": "number",
+      "title": {
+        "en": "Boost remaining",
+        "da": "Boost tilbage"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "units": {
+        "en": "min",
+        "da": "min"
+      },
+      "min": 0,
+      "max": 240,
+      "step": 1,
+      "decimals": 0
+    },
     "duka_fan_rpm": {
       "type": "number",
       "title": {
@@ -729,6 +1675,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
+      "insights": true,
       "units": {
         "en": "rpm",
         "da": "omdr./min"
@@ -755,6 +1702,25 @@
       "min": 0,
       "max": 1000
     },
+    "duka_humidity_boost": {
+      "type": "boolean",
+      "title": {
+        "en": "Humidity boost",
+        "da": "Fugtboost"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "The humidity is over the setpoint",
+        "da": "Luftfugtigheden er over setpunktet"
+      },
+      "insightsTitleFalse": {
+        "en": "The humidity is below the setpoint",
+        "da": "Luftfugtigheden er under setpunktet"
+      }
+    },
     "duka_interval": {
       "type": "boolean",
       "title": {
@@ -764,6 +1730,25 @@
       "getable": true,
       "setable": true,
       "uiComponent": "toggle"
+    },
+    "duka_interval_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Interval ventilation running",
+        "da": "Intervalventilation aktiv"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "The fan runs in interval ventilation",
+        "da": "Blæseren kører med intervalventilation"
+      },
+      "insightsTitleFalse": {
+        "en": "The fan does not run in interval ventilation",
+        "da": "Blæseren kører ikke med intervalventilation"
+      }
     },
     "duka_max_speed": {
       "type": "number",
@@ -816,6 +1801,83 @@
         }
       ]
     },
+    "duka_motion_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Motion sensor running",
+        "da": "Bevægelsessensor aktiv"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "The motion sensor runs the fan",
+        "da": "Bevægelsessensoren kører blæseren"
+      },
+      "insightsTitleFalse": {
+        "en": "The motion sensor does not run the fan",
+        "da": "Bevægelsessensoren kører ikke blæseren"
+      }
+    },
+    "duka_relay_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Relay input",
+        "da": "Relæindgang"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "The relay input is closed",
+        "da": "Relæindgangen er sluttet"
+      },
+      "insightsTitleFalse": {
+        "en": "The relay input is open",
+        "da": "Relæindgangen er åben"
+      }
+    },
+    "duka_schedule": {
+      "type": "boolean",
+      "title": {
+        "en": "Weekly schedule",
+        "da": "Ugeprogram"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "duka_schedule_text": {
+      "type": "string",
+      "title": {
+        "en": "Weekly schedule",
+        "da": "Ugeprogram"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "duka_silent_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Silent mode running",
+        "da": "Lydsvag tilstand aktiv"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "The fan runs in silent mode",
+        "da": "Blæseren kører lydsvagt"
+      },
+      "insightsTitleFalse": {
+        "en": "The fan does not run in silent mode",
+        "da": "Blæseren kører ikke lydsvagt"
+      }
+    },
     "duka_silent_speed": {
       "type": "number",
       "title": {
@@ -833,6 +1895,57 @@
       "max": 100,
       "step": 1,
       "decimals": 0
+    },
+    "duka_timer_minutes": {
+      "type": "number",
+      "title": {
+        "en": "Timer remaining",
+        "da": "Tid tilbage"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "units": {
+        "en": "min",
+        "da": "min"
+      },
+      "min": 0,
+      "max": 1440,
+      "step": 1,
+      "decimals": 0
+    },
+    "duka_timer_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Timer mode",
+        "da": "Timertilstand"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "values": [
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "da": "Fra"
+          }
+        },
+        {
+          "id": "night",
+          "title": {
+            "en": "Night",
+            "da": "Nat"
+          }
+        },
+        {
+          "id": "party",
+          "title": {
+            "en": "Party",
+            "da": "Fest"
+          }
+        }
+      ]
     }
   }
 }

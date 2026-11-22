@@ -1,0 +1,28 @@
+{
+  "name": {
+    "en": "DUKA schedule",
+    "da": "DUKA ugeprogram"
+  },
+  "devices": {
+    "type": "app",
+    "singular": true,
+    "filter": {
+      "capabilities": "duka_schedule_text"
+    }
+  },
+  "height": 540,
+  "api": {
+    "getSchedule": {
+      "method": "GET",
+      "path": "/"
+    },
+    "setEntry": {
+      "method": "PUT",
+      "path": "/entry"
+    },
+    "setSchedule": {
+      "method": "PUT",
+      "path": "/schedule"
+    }
+  }
+}

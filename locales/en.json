@@ -24,5 +24,25 @@
       "wrong_model_smart": "This unit is a DUKA S6W. Add it under DUKA S6W.",
       "unsupported_model": "This DUKA model is not supported."
     }
+  },
+  "widget": {
+    "schedule": {
+      "title": "Schedule",
+      "period": "Period",
+      "speed": "Speed",
+      "standby": "Standby",
+      "refresh": "Refresh",
+      "hint": "Each period ends at its time and runs at its speed until then. 00:00 in the last period means 24:00.",
+      "noDevice": "Select a DUKA S6W in the widget settings.",
+      "saving": "Saving...",
+      "failed": "Could not save.",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    }
   }
 }

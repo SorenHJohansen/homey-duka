@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "0-10 V input",
+    "da": "0-10 V indgang"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "units": {
+    "en": "%",
+    "da": "%"
+  },
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "decimals": 0
+}

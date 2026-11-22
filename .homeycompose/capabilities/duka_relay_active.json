@@ -1,0 +1,19 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Relay input",
+    "da": "Relæindgang"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "The relay input is closed",
+    "da": "Relæindgangen er sluttet"
+  },
+  "insightsTitleFalse": {
+    "en": "The relay input is open",
+    "da": "Relæindgangen er åben"
+  }
+}

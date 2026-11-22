@@ -1,0 +1,19 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Motion sensor running",
+    "da": "Bevægelsessensor aktiv"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "The motion sensor runs the fan",
+    "da": "Bevægelsessensoren kører blæseren"
+  },
+  "insightsTitleFalse": {
+    "en": "The motion sensor does not run the fan",
+    "da": "Bevægelsessensoren kører ikke blæseren"
+  }
+}

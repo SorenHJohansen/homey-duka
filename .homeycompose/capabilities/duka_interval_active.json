@@ -1,0 +1,19 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Interval ventilation running",
+    "da": "Intervalventilation aktiv"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "The fan runs in interval ventilation",
+    "da": "Blæseren kører med intervalventilation"
+  },
+  "insightsTitleFalse": {
+    "en": "The fan does not run in interval ventilation",
+    "da": "Blæseren kører ikke med intervalventilation"
+  }
+}

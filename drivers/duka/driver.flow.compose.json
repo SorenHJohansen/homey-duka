@@ -126,6 +126,307 @@
         "en": "Reset the filter timer",
         "da": "Nulstil filtertiden"
       }
+    },
+    {
+      "id": "set_timer_mode",
+      "title": {
+        "en": "Set the timer mode",
+        "da": "Indstil timertilstand"
+      },
+      "titleFormatted": {
+        "en": "Set the timer mode to [[mode]]",
+        "da": "Indstil timertilstand til [[mode]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "mode",
+          "title": {
+            "en": "Mode",
+            "da": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            },
+            {
+              "id": "night",
+              "title": {
+                "en": "Night",
+                "da": "Nat"
+              }
+            },
+            {
+              "id": "party",
+              "title": {
+                "en": "Party",
+                "da": "Fest"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_schedule",
+      "title": {
+        "en": "Set the weekly schedule",
+        "da": "Indstil ugeprogrammet"
+      },
+      "titleFormatted": {
+        "en": "Turn the weekly schedule [[state]]",
+        "da": "Slå ugeprogrammet [[state]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "state",
+          "title": {
+            "en": "State",
+            "da": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "da": "Til"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_schedule_period",
+      "title": {
+        "en": "Set a schedule period",
+        "da": "Indstil en periode i ugeprogrammet"
+      },
+      "titleFormatted": {
+        "en": "Set [[weekday]] period [[period]] to [[speed]] ending at [[hours]]:[[minutes]]",
+        "da": "Indstil [[weekday]] periode [[period]] til [[speed]] der slutter [[hours]]:[[minutes]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "weekday",
+          "title": {
+            "en": "Day",
+            "da": "Dag"
+          },
+          "values": [
+            {
+              "id": "0",
+              "title": {
+                "en": "All days",
+                "da": "Alle dage"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Monday",
+                "da": "Mandag"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Tuesday",
+                "da": "Tirsdag"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "Wednesday",
+                "da": "Onsdag"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "Thursday",
+                "da": "Torsdag"
+              }
+            },
+            {
+              "id": "5",
+              "title": {
+                "en": "Friday",
+                "da": "Fredag"
+              }
+            },
+            {
+              "id": "6",
+              "title": {
+                "en": "Saturday",
+                "da": "Lørdag"
+              }
+            },
+            {
+              "id": "7",
+              "title": {
+                "en": "Sunday",
+                "da": "Søndag"
+              }
+            },
+            {
+              "id": "8",
+              "title": {
+                "en": "Monday to Friday",
+                "da": "Mandag til fredag"
+              }
+            },
+            {
+              "id": "9",
+              "title": {
+                "en": "Saturday and Sunday",
+                "da": "Lørdag og søndag"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "period",
+          "title": {
+            "en": "Period",
+            "da": "Periode"
+          },
+          "values": [
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "da": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "da": "2"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "3",
+                "da": "3"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "4",
+                "da": "4"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "speed",
+          "title": {
+            "en": "Speed",
+            "da": "Hastighed"
+          },
+          "values": [
+            {
+              "id": "0",
+              "title": {
+                "en": "Standby",
+                "da": "Standby"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "da": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "da": "2"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "3",
+                "da": "3"
+              }
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "hours",
+          "title": {
+            "en": "Hours",
+            "da": "Timer"
+          },
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "placeholder": {
+            "en": "0",
+            "da": "0"
+          }
+        },
+        {
+          "type": "number",
+          "name": "minutes",
+          "title": {
+            "en": "Minutes",
+            "da": "Minutter"
+          },
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "placeholder": {
+            "en": "0",
+            "da": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "read_schedule",
+      "title": {
+        "en": "Read the weekly schedule",
+        "da": "Læs ugeprogrammet"
+      },
+      "tokens": [
+        {
+          "name": "summary",
+          "type": "string",
+          "title": {
+            "en": "Schedule",
+            "da": "Ugeprogram"
+          },
+          "example": {
+            "en": "Mon 06:00 S1, 09:00 S1; Tue 06:00 S1, 09:00 S1",
+            "da": "Man 06:00 S1, 09:00 S1; Tir 06:00 S1, 09:00 S1"
+          }
+        }
+      ]
     }
   ],
   "triggers": [

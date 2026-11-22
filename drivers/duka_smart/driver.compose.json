@@ -13,7 +13,10 @@
     "duka_interval",
     "duka_silent_speed",
     "duka_max_speed",
-    "duka_fan_rpm"
+    "duka_fan_rpm",
+    "duka_boost_minutes",
+    "duka_silent_active",
+    "duka_interval_active"
   ],
   "images": {
     "small": "/drivers/duka_smart/assets/images/small.png",

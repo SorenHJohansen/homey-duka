@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <label class="switch">
+        <input id="enabled" type="checkbox" />
+        <span id="enabled-label">Schedule</span>
+      </label>
+      <button id="refresh" type="button">Refresh</button>
+    </header>
+
+    <div id="message" class="message" hidden></div>
+
+    <table id="grid" hidden>
+      <thead>
+        <tr>
+          <th></th>
+          <th data-period="1"></th>
+          <th data-period="2"></th>
+          <th data-period="3"></th>
+          <th data-period="4"></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <p id="hint" class="hint"></p>
+  </body>
+</html>

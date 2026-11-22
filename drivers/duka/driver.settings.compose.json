@@ -1,0 +1,245 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Sensors"
+    },
+    "children": [
+      {
+        "id": "humidity_sensor",
+        "type": "checkbox",
+        "label": {
+          "en": "Humidity sensor"
+        },
+        "value": true,
+        "hint": {
+          "en": "Let the humidity sensor start boost when the setpoint is exceeded."
+        }
+      },
+      {
+        "id": "humidity_threshold",
+        "type": "number",
+        "label": {
+          "en": "Humidity setpoint"
+        },
+        "value": 70,
+        "min": 40,
+        "max": 80,
+        "step": 1,
+        "units": {
+          "en": "%RH"
+        }
+      },
+      {
+        "id": "analog_sensor",
+        "type": "checkbox",
+        "label": {
+          "en": "0-10 V sensor"
+        },
+        "value": false,
+        "hint": {
+          "en": "Let the 0-10 V input start boost when the setpoint is exceeded."
+        }
+      },
+      {
+        "id": "analog_threshold",
+        "type": "number",
+        "label": {
+          "en": "0-10 V setpoint"
+        },
+        "value": 50,
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "units": {
+          "en": "%"
+        }
+      },
+      {
+        "id": "relay_sensor",
+        "type": "checkbox",
+        "label": {
+          "en": "Relay input"
+        },
+        "value": false,
+        "hint": {
+          "en": "Let a closed relay input start boost."
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Timers"
+    },
+    "children": [
+      {
+        "id": "boost_delay",
+        "type": "number",
+        "label": {
+          "en": "Boost run time"
+        },
+        "value": 30,
+        "min": 0,
+        "max": 60,
+        "step": 1,
+        "units": {
+          "en": "min"
+        }
+      },
+      {
+        "id": "night_minutes",
+        "type": "number",
+        "label": {
+          "en": "Night mode minutes"
+        },
+        "value": 0,
+        "min": 0,
+        "max": 59,
+        "step": 1,
+        "units": {
+          "en": "min"
+        }
+      },
+      {
+        "id": "night_hours",
+        "type": "number",
+        "label": {
+          "en": "Night mode hours"
+        },
+        "value": 8,
+        "min": 0,
+        "max": 23,
+        "step": 1,
+        "units": {
+          "en": "h"
+        }
+      },
+      {
+        "id": "party_minutes",
+        "type": "number",
+        "label": {
+          "en": "Party mode minutes"
+        },
+        "value": 0,
+        "min": 0,
+        "max": 59,
+        "step": 1,
+        "units": {
+          "en": "min"
+        }
+      },
+      {
+        "id": "party_hours",
+        "type": "number",
+        "label": {
+          "en": "Party mode hours"
+        },
+        "value": 4,
+        "min": 0,
+        "max": 23,
+        "step": 1,
+        "units": {
+          "en": "h"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Filter"
+    },
+    "children": [
+      {
+        "id": "filter_interval",
+        "type": "number",
+        "label": {
+          "en": "Filter replacement interval"
+        },
+        "value": 365,
+        "min": 70,
+        "max": 365,
+        "step": 1,
+        "units": {
+          "en": "days"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Fan stage speeds"
+    },
+    "children": [
+      {
+        "id": "supply_speed_1",
+        "type": "number",
+        "label": {
+          "en": "Supply speed 1"
+        },
+        "value": 40,
+        "min": 10,
+        "max": 255,
+        "step": 1
+      },
+      {
+        "id": "exhaust_speed_1",
+        "type": "number",
+        "label": {
+          "en": "Exhaust speed 1"
+        },
+        "value": 35,
+        "min": 10,
+        "max": 255,
+        "step": 1
+      },
+      {
+        "id": "supply_speed_2",
+        "type": "number",
+        "label": {
+          "en": "Supply speed 2"
+        },
+        "value": 90,
+        "min": 10,
+        "max": 255,
+        "step": 1
+      },
+      {
+        "id": "exhaust_speed_2",
+        "type": "number",
+        "label": {
+          "en": "Exhaust speed 2"
+        },
+        "value": 80,
+        "min": 10,
+        "max": 255,
+        "step": 1
+      },
+      {
+        "id": "supply_speed_3",
+        "type": "number",
+        "label": {
+          "en": "Supply speed 3"
+        },
+        "value": 140,
+        "min": 10,
+        "max": 255,
+        "step": 1
+      },
+      {
+        "id": "exhaust_speed_3",
+        "type": "number",
+        "label": {
+          "en": "Exhaust speed 3"
+        },
+        "value": 130,
+        "min": 10,
+        "max": 255,
+        "step": 1
+      }
+    ]
+  }
+]

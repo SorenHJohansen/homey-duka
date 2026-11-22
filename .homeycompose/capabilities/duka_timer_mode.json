@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Timer mode",
+    "da": "Timertilstand"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "values": [
+    {
+      "id": "off",
+      "title": {
+        "en": "Off",
+        "da": "Fra"
+      }
+    },
+    {
+      "id": "night",
+      "title": {
+        "en": "Night",
+        "da": "Nat"
+      }
+    },
+    {
+      "id": "party",
+      "title": {
+        "en": "Party",
+        "da": "Fest"
+      }
+    }
+  ]
+}
