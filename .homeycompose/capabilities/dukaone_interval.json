@@ -1,0 +1,10 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Interval ventilation",
+    "da": "Intervalventilation"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}

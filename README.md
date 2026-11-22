@@ -14,18 +14,21 @@ on your local network, using the same protocol as the
 - **Ventilation mode**: in/out (heat recovery), in (supply air) and out
   (exhaust air).
 - **Humidity sensor** from the unit's built-in sensor.
-- **Filter status**: an alarm when the filter needs replacing and the remaining
-  filter lifetime in days.
+- **Filter status** (heat recovery models): an alarm when the filter needs
+  replacing and the remaining filter lifetime in days.
 - **Filter reset** as a maintenance action on the device page.
+- **Smart fan models**: boost, 24-hour mode, interval ventilation, silent and
+  maximum speed settings, plus humidity, room temperature and fan RPM.
 - **Flow cards**: set mode, set speed, set manual speed, reset the filter timer,
-  and triggers for mode changes and filter alarms.
+  boost, 24-hour mode, interval ventilation, speed settings, and triggers for
+  mode changes and filter alarms.
 - **Discovery while pairing**: the app broadcasts on the local network and lists
   the units that answer. You can also enter the device ID and IP address
   manually.
-- **Per-unit capabilities**: during pairing the app only enables the fan speed,
-  mode, humidity and filter capabilities that the unit reports. A Duka One S6W
-  gets all of them; a simpler one-way unit gets on/off and fan speed only. On
-  units without a manual speed, the slider picks low, medium or high.
+- **Per-unit capabilities**: during pairing the app detects the model and only
+  enables the capabilities that unit reports. A Duka One S6W gets the heat
+  recovery controls, a smart fan gets its own controls, and a simpler one-way
+  unit gets on/off and fan speed only.
 
 ## Requirements
 
@@ -69,6 +72,12 @@ a function code and a list of parameters, with a 16-bit checksum. The app polls
 the status every 10 seconds and after every command. Responses are also used to
 learn the unit's current IP address, so a DHCP lease change does not break the
 device.
+
+The firmware reports a unit type. Heat recovery units (type 14 and similar) use
+the mode, filter and manual speed parameters. Smart fans (type 6) use a
+different set: boost, 24-hour mode, interval ventilation, speed limits and
+sensor settings. The app picks the right status request and capability set from
+the detected type.
 
 The protocol implementation lives in [`lib/duka-protocol.js`](lib/duka-protocol.js),
 the network client in [`lib/duka-client.js`](lib/duka-client.js).

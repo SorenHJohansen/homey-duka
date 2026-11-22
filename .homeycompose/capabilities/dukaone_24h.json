@@ -1,0 +1,10 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "24 hour mode",
+    "da": "24-timers tilstand"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}

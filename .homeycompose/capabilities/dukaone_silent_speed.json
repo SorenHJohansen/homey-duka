@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Silent speed",
+    "da": "Lydsvag hastighed"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "units": {
+    "en": "%",
+    "da": "%"
+  },
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "decimals": 0
+}

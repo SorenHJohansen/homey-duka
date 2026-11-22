@@ -255,6 +255,192 @@
             "filter": "driver_id=dukaone"
           }
         ]
+      },
+      {
+        "id": "set_boost",
+        "title": {
+          "en": "Set boost",
+          "da": "Indstil boost"
+        },
+        "titleFormatted": {
+          "en": "Turn boost [[state]]",
+          "da": "Slå boost [[state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "dropdown",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "da": "Tilstand"
+            },
+            "values": [
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "da": "Til"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "da": "Fra"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_24h",
+        "title": {
+          "en": "Set 24 hour mode",
+          "da": "Indstil 24-timers tilstand"
+        },
+        "titleFormatted": {
+          "en": "Turn 24 hour mode [[state]]",
+          "da": "Slå 24-timers tilstand [[state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "dropdown",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "da": "Tilstand"
+            },
+            "values": [
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "da": "Til"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "da": "Fra"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_interval",
+        "title": {
+          "en": "Set interval ventilation",
+          "da": "Indstil intervalventilation"
+        },
+        "titleFormatted": {
+          "en": "Turn interval ventilation [[state]]",
+          "da": "Slå intervalventilation [[state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "dropdown",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "da": "Tilstand"
+            },
+            "values": [
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "da": "Til"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "da": "Fra"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_silent_speed",
+        "title": {
+          "en": "Set silent speed",
+          "da": "Indstil lydsvag hastighed"
+        },
+        "titleFormatted": {
+          "en": "Set silent speed to [[speed]] %",
+          "da": "Indstil lydsvag hastighed til [[speed]] %"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "range",
+            "name": "speed",
+            "title": {
+              "en": "Speed",
+              "da": "Hastighed"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "label": "%"
+          }
+        ]
+      },
+      {
+        "id": "set_max_speed",
+        "title": {
+          "en": "Set maximum speed",
+          "da": "Indstil maksimal hastighed"
+        },
+        "titleFormatted": {
+          "en": "Set maximum speed to [[speed]] %",
+          "da": "Indstil maksimal hastighed til [[speed]] %"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "range",
+            "name": "speed",
+            "title": {
+              "en": "Speed",
+              "da": "Hastighed"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "label": "%"
+          }
+        ]
       }
     ]
   },
@@ -269,10 +455,17 @@
         "onoff",
         "dim",
         "measure_humidity",
+        "measure_temperature",
         "dukaone_mode",
         "alarm_filter",
         "dukaone_filter_days",
-        "button.reset_filter"
+        "button.reset_filter",
+        "dukaone_boost",
+        "dukaone_24h",
+        "dukaone_interval",
+        "dukaone_silent_speed",
+        "dukaone_max_speed",
+        "dukaone_fan_rpm"
       ],
       "capabilitiesOptions": {
         "dim": {
@@ -331,6 +524,45 @@
         "da": "Filteret er OK"
       }
     },
+    "dukaone_24h": {
+      "type": "boolean",
+      "title": {
+        "en": "24 hour mode",
+        "da": "24-timers tilstand"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "dukaone_boost": {
+      "type": "boolean",
+      "title": {
+        "en": "Boost",
+        "da": "Boost"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "uiQuickAction": true
+    },
+    "dukaone_fan_rpm": {
+      "type": "number",
+      "title": {
+        "en": "Fan speed",
+        "da": "Blæserhastighed"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "units": {
+        "en": "rpm",
+        "da": "omdr./min"
+      },
+      "min": 0,
+      "max": 5000,
+      "step": 1,
+      "decimals": 0
+    },
     "dukaone_filter_days": {
       "type": "number",
       "title": {
@@ -347,6 +579,34 @@
       "decimals": 1,
       "min": 0,
       "max": 1000
+    },
+    "dukaone_interval": {
+      "type": "boolean",
+      "title": {
+        "en": "Interval ventilation",
+        "da": "Intervalventilation"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "dukaone_max_speed": {
+      "type": "number",
+      "title": {
+        "en": "Maximum speed",
+        "da": "Maksimal hastighed"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "units": {
+        "en": "%",
+        "da": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "decimals": 0
     },
     "dukaone_mode": {
       "type": "enum",
@@ -380,6 +640,24 @@
           }
         }
       ]
+    },
+    "dukaone_silent_speed": {
+      "type": "number",
+      "title": {
+        "en": "Silent speed",
+        "da": "Lydsvag hastighed"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "units": {
+        "en": "%",
+        "da": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "decimals": 0
     }
   }
 }
