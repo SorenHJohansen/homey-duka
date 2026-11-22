@@ -2,12 +2,8 @@
   <rect width="1000" height="1000" fill="#cd2439"/>
   <g transform="translate(500 500) scale(0.8) translate(-480 -480)">
     
-  <rect x="180" y="140" width="600" height="680" rx="80" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M330 620 L330 360" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M270 420 L330 360 L390 420" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M630 340 L630 600" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M570 540 L630 600 L690 540" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M400 480 L440 440 L480 480 L520 440 L560 480" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon fill="#ffffff" points="320 180 180 360 270 360 270 640 370 640 370 360 460 360"/>
+  <polygon fill="#ffffff" points="640 780 500 600 590 600 590 320 690 320 690 600 780 600"/>
 
   </g>
 </svg>
