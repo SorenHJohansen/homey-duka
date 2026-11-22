@@ -7,6 +7,7 @@
   "scripts": {
     "test": "node --test tests/",
     "validate": "homey app validate --level debug",
-    "build": "homey app build"
+    "build": "homey app build",
+    "check:source": "git ls-files --error-unmatch app.js lib/duka-protocol.js lib/duka-client.js lib/duka-pair.js lib/duka-family.js lib/duka-device.js lib/duka-values.js lib/duka-backoff.js drivers/duka/device.js drivers/duka/driver.js drivers/duka_smart/device.js drivers/duka_smart/driver.js"
   }
 }

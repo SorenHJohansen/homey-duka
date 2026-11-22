@@ -1,5 +1,7 @@
 # DUKA for Homey
 
+[![CI](https://github.com/SorenHJohansen/homey-duka/actions/workflows/ci.yml/badge.svg)](https://github.com/SorenHJohansen/homey-duka/actions/workflows/ci.yml)
+
 Unofficial [Homey Pro](https://homey.app) app for **DUKA** ventilation units.
 The app talks to the unit directly over UDP on your local network, using the
 same protocol as the
@@ -98,10 +100,17 @@ could spoof a reply. Use the app only on a trusted network.
 ## Development
 
 ```bash
-npm test                          # protocol unit tests
-npx homey app validate -l debug   # validate the app manifest
+npm test                          # protocol, client and pairing tests
+npm run check:source              # every runtime module is tracked in git
+npx homey app validate -l verified
 npx homey app run --remote        # run on a Homey
 ```
+
+CI runs `check:source`, the tests, `homey app validate --level verified` and
+`homey app build` on every push and pull request. The manual **Release**
+workflow bumps the version, commits and tags it, and uploads a draft to the
+Homey App Store. It needs a `HOMEY_PAT` repository secret from
+https://tools.developer.homey.app/me.
 
 `app.json` is generated from the files in `.homeycompose/` and
 `drivers/*/*.compose.json`. Edit those files, not `app.json`.

@@ -1,0 +1,78 @@
+name: Release
+
+# Manual release. Bumps the version, commits and tags it, then uploads the app
+# to the Homey App Store as a draft.
+#
+# Requires a repository secret HOMEY_PAT with a personal access token from
+# https://tools.developer.homey.app/me
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Version bump
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: patch
+      changelog_en:
+        description: Changelog (English)
+        required: true
+      changelog_da:
+        description: Changelog (Danish, optional)
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install Homey CLI
+        run: npm install --global homey@4.6.3
+
+      - name: Run tests
+        run: npm test
+
+      - name: Bump version, commit and tag
+        env:
+          BUMP: ${{ inputs.bump }}
+          CHANGELOG_EN: ${{ inputs.changelog_en }}
+          CHANGELOG_DA: ${{ inputs.changelog_da }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          ARGS=(--changelog.en "$CHANGELOG_EN")
+          if [ -n "$CHANGELOG_DA" ]; then
+            ARGS+=(--changelog.da "$CHANGELOG_DA")
+          fi
+
+          homey app version "$BUMP" "${ARGS[@]}"
+
+          VERSION=$(jq -r .version app.json)
+          npm version "$VERSION" --no-git-tag-version --allow-same-version
+
+          git add -A
+          git commit -m "Release $VERSION"
+          git tag "v$VERSION"
+          git push --follow-tags
+
+      - name: Publish to the Homey App Store
+        env:
+          HOMEY_PAT: ${{ secrets.HOMEY_PAT }}
+        run: homey app publish
