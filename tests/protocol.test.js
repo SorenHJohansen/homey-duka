@@ -24,7 +24,7 @@ function buildResponse(deviceId, password, parameters) {
 }
 
 // The expected packets below were produced with the reference Python
-// implementation (dukaonesdk) so the encoder can be checked byte for byte.
+// implementation (dukasdk) so the encoder can be checked byte for byte.
 
 test('search packet matches the reference implementation', () => {
   assert.equal(
@@ -153,4 +153,42 @@ test('rejects a packet with a bad header', () => {
 test('ignores trailing packets that are too short', () => {
   assert.equal(protocol.parseResponse(Buffer.from([0xfd, 0xfd, 0x02])), null);
   assert.equal(protocol.parseResponse(null), null);
+});
+
+test('smart 0x06 and 0x24 use the smart parameter sizes', () => {
+  const { smartStatusResponse } = require('./helpers');
+  const packet = protocol.parseResponse(smartStatusResponse('1234567890123456'), {
+    family: 'smart',
+  });
+
+  assert.ok(packet);
+  assert.equal(packet.isOn, true);
+  assert.equal(packet.boostTimer, 900);
+  assert.equal(packet.turnOnDelay, 0);
+});
+
+test('S6W 0x06 and 0x24 use the S6W parameter sizes', () => {
+  const response = buildResponse('1234567890123456', '1111', [
+    0x06,
+    0x00,
+    0x24,
+    0x34,
+    0x12,
+    0x01,
+    0x01,
+  ]);
+  const packet = protocol.parseResponse(response, { family: 's6w' });
+
+  assert.ok(packet);
+  assert.equal(packet.isOn, true);
+});
+
+test('readHeader exposes the device and the parameter offset', () => {
+  const response = buildResponse('1234567890123456', '1111', [0x01, 0x01]);
+  const header = protocol.readHeader(response);
+
+  assert.ok(header);
+  assert.equal(header.deviceId, '1234567890123456');
+  assert.equal(header.func, protocol.FUNC.RESPONSE);
+  assert.ok(header.dataOffset > 3);
 });

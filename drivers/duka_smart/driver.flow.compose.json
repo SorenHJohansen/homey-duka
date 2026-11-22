@@ -164,56 +164,56 @@
   ],
   "triggers": [
     {
-      "id": "dukaone_boost_true",
+      "id": "duka_boost_true",
       "title": {
         "en": "Boost turned on",
         "da": "Boost blev slået til"
       }
     },
     {
-      "id": "dukaone_boost_false",
+      "id": "duka_boost_false",
       "title": {
         "en": "Boost turned off",
         "da": "Boost blev slået fra"
       }
     },
     {
-      "id": "dukaone_24h_true",
+      "id": "duka_24h_true",
       "title": {
         "en": "24 hour mode turned on",
         "da": "24-timers tilstand blev slået til"
       }
     },
     {
-      "id": "dukaone_24h_false",
+      "id": "duka_24h_false",
       "title": {
         "en": "24 hour mode turned off",
         "da": "24-timers tilstand blev slået fra"
       }
     },
     {
-      "id": "dukaone_interval_true",
+      "id": "duka_interval_true",
       "title": {
         "en": "Interval ventilation turned on",
         "da": "Intervalventilation blev slået til"
       }
     },
     {
-      "id": "dukaone_interval_false",
+      "id": "duka_interval_false",
       "title": {
         "en": "Interval ventilation turned off",
         "da": "Intervalventilation blev slået fra"
       }
     },
     {
-      "id": "dukaone_silent_speed_changed",
+      "id": "duka_silent_speed_changed",
       "title": {
         "en": "The silent speed changed",
         "da": "Den lydsvage hastighed blev ændret"
       },
       "tokens": [
         {
-          "name": "dukaone_silent_speed",
+          "name": "duka_silent_speed",
           "type": "number",
           "title": {
             "en": "Speed",
@@ -224,14 +224,14 @@
       ]
     },
     {
-      "id": "dukaone_max_speed_changed",
+      "id": "duka_max_speed_changed",
       "title": {
         "en": "The maximum speed changed",
         "da": "Den maksimale hastighed blev ændret"
       },
       "tokens": [
         {
-          "name": "dukaone_max_speed",
+          "name": "duka_max_speed",
           "type": "number",
           "title": {
             "en": "Speed",

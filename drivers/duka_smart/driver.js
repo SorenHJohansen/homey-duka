@@ -18,7 +18,7 @@ class DukaOneSmartDriver extends Homey.Driver {
 
     const setInterval = this.homey.flow.getActionCard('set_interval');
     setInterval.registerRunListener(async (args) => {
-      await args.device.setInterval(args.state === 'on');
+      await args.device.setIntervalVentilation(args.state === 'on');
     });
 
     const setSilentSpeed = this.homey.flow.getActionCard('set_silent_speed');

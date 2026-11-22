@@ -1,6 +1,10 @@
 {
   "0.1.3": {
     "en": "Initial release. Supports DUKA One S6W heat recovery units and DUKA smart fans over the local network.",
-    "da": "F\u00f8rste udgivelse. Underst\u00f8tter DUKA One S6W-varmegenvinding og DUKA smart-ventilatorer p\u00e5 det lokale netv\u00e6rk."
+    "da": "Første udgivelse. Understøtter DUKA One S6W-varmegenvinding og DUKA smart-ventilatorer på det lokale netværk."
+  },
+  "0.2.0": {
+    "en": "Renamed to DUKA. Pairing now handles units that do not report a model, unsupported models are rejected, the two firmware families use separate parameter sizes, credentials are no longer broadcast, and client tests were added.",
+    "da": "Omdøbt til DUKA. Parring håndterer nu enheder uden modelrapport, ukendte modeller afvises, de to firmwarefamilier bruger separate parameterstørrelser, legitimationsoplysninger sendes ikke længere via broadcast, og der er tilføjet klienttests."
   }
 }

@@ -1,0 +1,34 @@
+{
+  "name": {
+    "en": "DUKA smart fan",
+    "da": "DUKA smart ventilator"
+  },
+  "class": "fan",
+  "capabilities": [
+    "onoff",
+    "measure_humidity",
+    "measure_temperature",
+    "duka_boost",
+    "duka_24h",
+    "duka_interval",
+    "duka_silent_speed",
+    "duka_max_speed",
+    "duka_fan_rpm"
+  ],
+  "images": {
+    "small": "/drivers/duka_smart/assets/images/small.png",
+    "large": "/drivers/duka_smart/assets/images/large.png",
+    "xlarge": "/drivers/duka_smart/assets/images/xlarge.png"
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "pair": [
+    {
+      "id": "start"
+    }
+  ]
+}

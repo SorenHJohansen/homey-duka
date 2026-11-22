@@ -130,25 +130,29 @@
   ],
   "triggers": [
     {
-      "id": "dukaone_mode_changed",
+      "id": "duka_mode_changed",
       "title": {
         "en": "The ventilation mode changed",
         "da": "Ventilationstilstanden blev ændret"
       },
       "tokens": [
         {
-          "name": "dukaone_mode",
+          "name": "duka_mode",
           "type": "string",
           "title": {
             "en": "Mode",
             "da": "Tilstand"
           },
           "example": {
-            "en": "In/out",
-            "da": "Ind/ud"
+            "en": "inout",
+            "da": "inout"
           }
         }
-      ]
+      ],
+      "hint": {
+        "en": "The mode is one of in, out or inout.",
+        "da": "Tilstanden er en af in, out eller inout."
+      }
     },
     {
       "id": "alarm_filter_true",

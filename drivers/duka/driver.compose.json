@@ -8,9 +8,9 @@
     "onoff",
     "dim",
     "measure_humidity",
-    "dukaone_mode",
+    "duka_mode",
     "alarm_filter",
-    "dukaone_filter_days",
+    "duka_filter_days",
     "button.reset_filter"
   ],
   "capabilitiesOptions": {
@@ -33,9 +33,9 @@
     }
   },
   "images": {
-    "small": "/drivers/dukaone/assets/images/small.png",
-    "large": "/drivers/dukaone/assets/images/large.png",
-    "xlarge": "/drivers/dukaone/assets/images/xlarge.png"
+    "small": "/drivers/duka/assets/images/small.png",
+    "large": "/drivers/duka/assets/images/large.png",
+    "xlarge": "/drivers/duka/assets/images/xlarge.png"
   },
   "platforms": [
     "local"

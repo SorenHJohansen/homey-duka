@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
-  "id": "dk.hjohansen.dukaone",
-  "version": "0.1.3",
+  "id": "dk.hjohansen.duka",
+  "version": "0.2.0",
   "compatibility": ">=12.9.0",
   "sdk": 3,
   "runtime": "nodejs",
@@ -13,8 +13,8 @@
     "da": "DUKA"
   },
   "description": {
-    "en": "Control DUKA ventilation units over your local network.",
-    "da": "Styr DUKA-ventilationsenheder på dit lokale netværk."
+    "en": "Fresh air, on your schedule.",
+    "da": "Frisk luft, når du vil."
   },
   "category": "climate",
   "brandColor": "#cd2439",
@@ -43,39 +43,50 @@
     "name": "Søren H. Johansen",
     "email": "github.z9n6g@passinbox.com"
   },
-  "source": "https://github.com/SorenHJohansen/homey-dukaone",
+  "source": "https://github.com/SorenHJohansen/homey-duka",
   "bugs": {
-    "url": "https://github.com/SorenHJohansen/homey-dukaone/issues"
+    "url": "https://github.com/SorenHJohansen/homey-duka/issues"
   },
-  "support": "https://github.com/SorenHJohansen/homey-dukaone/issues",
-  "homepage": "https://github.com/SorenHJohansen/homey-dukaone",
+  "support": "https://github.com/SorenHJohansen/homey-duka/issues",
+  "homepage": "https://github.com/SorenHJohansen/homey-duka",
+  "contributors": {
+    "developers": [
+      {
+        "name": "dingusdk"
+      }
+    ]
+  },
   "flow": {
     "triggers": [
       {
-        "id": "dukaone_mode_changed",
+        "id": "duka_mode_changed",
         "title": {
           "en": "The ventilation mode changed",
           "da": "Ventilationstilstanden blev ændret"
         },
         "tokens": [
           {
-            "name": "dukaone_mode",
+            "name": "duka_mode",
             "type": "string",
             "title": {
               "en": "Mode",
               "da": "Tilstand"
             },
             "example": {
-              "en": "In/out",
-              "da": "Ind/ud"
+              "en": "inout",
+              "da": "inout"
             }
           }
         ],
+        "hint": {
+          "en": "The mode is one of in, out or inout.",
+          "da": "Tilstanden er en af in, out eller inout."
+        },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=duka"
           }
         ]
       },
@@ -89,7 +100,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=duka"
           }
         ]
       },
@@ -103,12 +114,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=duka"
           }
         ]
       },
       {
-        "id": "dukaone_boost_true",
+        "id": "duka_boost_true",
         "title": {
           "en": "Boost turned on",
           "da": "Boost blev slået til"
@@ -117,12 +128,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       },
       {
-        "id": "dukaone_boost_false",
+        "id": "duka_boost_false",
         "title": {
           "en": "Boost turned off",
           "da": "Boost blev slået fra"
@@ -131,12 +142,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       },
       {
-        "id": "dukaone_24h_true",
+        "id": "duka_24h_true",
         "title": {
           "en": "24 hour mode turned on",
           "da": "24-timers tilstand blev slået til"
@@ -145,12 +156,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       },
       {
-        "id": "dukaone_24h_false",
+        "id": "duka_24h_false",
         "title": {
           "en": "24 hour mode turned off",
           "da": "24-timers tilstand blev slået fra"
@@ -159,12 +170,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       },
       {
-        "id": "dukaone_interval_true",
+        "id": "duka_interval_true",
         "title": {
           "en": "Interval ventilation turned on",
           "da": "Intervalventilation blev slået til"
@@ -173,12 +184,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       },
       {
-        "id": "dukaone_interval_false",
+        "id": "duka_interval_false",
         "title": {
           "en": "Interval ventilation turned off",
           "da": "Intervalventilation blev slået fra"
@@ -187,19 +198,19 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       },
       {
-        "id": "dukaone_silent_speed_changed",
+        "id": "duka_silent_speed_changed",
         "title": {
           "en": "The silent speed changed",
           "da": "Den lydsvage hastighed blev ændret"
         },
         "tokens": [
           {
-            "name": "dukaone_silent_speed",
+            "name": "duka_silent_speed",
             "type": "number",
             "title": {
               "en": "Speed",
@@ -212,19 +223,19 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       },
       {
-        "id": "dukaone_max_speed_changed",
+        "id": "duka_max_speed_changed",
         "title": {
           "en": "The maximum speed changed",
           "da": "Den maksimale hastighed blev ændret"
         },
         "tokens": [
           {
-            "name": "dukaone_max_speed",
+            "name": "duka_max_speed",
             "type": "number",
             "title": {
               "en": "Speed",
@@ -237,7 +248,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           }
         ]
       }
@@ -257,7 +268,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=duka"
           },
           {
             "type": "dropdown",
@@ -306,7 +317,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=duka"
           },
           {
             "type": "dropdown",
@@ -362,7 +373,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=duka"
           },
           {
             "type": "range",
@@ -388,7 +399,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=duka"
           }
         ]
       },
@@ -406,7 +417,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           },
           {
             "type": "dropdown",
@@ -448,7 +459,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           },
           {
             "type": "dropdown",
@@ -490,7 +501,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           },
           {
             "type": "dropdown",
@@ -532,7 +543,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           },
           {
             "type": "range",
@@ -562,7 +573,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone_smart"
+            "filter": "driver_id=duka_smart"
           },
           {
             "type": "range",
@@ -591,9 +602,9 @@
         "onoff",
         "dim",
         "measure_humidity",
-        "dukaone_mode",
+        "duka_mode",
         "alarm_filter",
-        "dukaone_filter_days",
+        "duka_filter_days",
         "button.reset_filter"
       ],
       "capabilitiesOptions": {
@@ -616,9 +627,9 @@
         }
       },
       "images": {
-        "small": "/drivers/dukaone/assets/images/small.png",
-        "large": "/drivers/dukaone/assets/images/large.png",
-        "xlarge": "/drivers/dukaone/assets/images/xlarge.png"
+        "small": "/drivers/duka/assets/images/small.png",
+        "large": "/drivers/duka/assets/images/large.png",
+        "xlarge": "/drivers/duka/assets/images/xlarge.png"
       },
       "platforms": [
         "local"
@@ -631,7 +642,7 @@
           "id": "start"
         }
       ],
-      "id": "dukaone"
+      "id": "duka"
     },
     {
       "name": {
@@ -643,17 +654,17 @@
         "onoff",
         "measure_humidity",
         "measure_temperature",
-        "dukaone_boost",
-        "dukaone_24h",
-        "dukaone_interval",
-        "dukaone_silent_speed",
-        "dukaone_max_speed",
-        "dukaone_fan_rpm"
+        "duka_boost",
+        "duka_24h",
+        "duka_interval",
+        "duka_silent_speed",
+        "duka_max_speed",
+        "duka_fan_rpm"
       ],
       "images": {
-        "small": "/drivers/dukaone_smart/assets/images/small.png",
-        "large": "/drivers/dukaone_smart/assets/images/large.png",
-        "xlarge": "/drivers/dukaone_smart/assets/images/xlarge.png"
+        "small": "/drivers/duka_smart/assets/images/small.png",
+        "large": "/drivers/duka_smart/assets/images/large.png",
+        "xlarge": "/drivers/duka_smart/assets/images/xlarge.png"
       },
       "platforms": [
         "local"
@@ -666,7 +677,7 @@
           "id": "start"
         }
       ],
-      "id": "dukaone_smart"
+      "id": "duka_smart"
     }
   ],
   "capabilities": {
@@ -688,7 +699,7 @@
         "da": "Filteret er OK"
       }
     },
-    "dukaone_24h": {
+    "duka_24h": {
       "type": "boolean",
       "title": {
         "en": "24 hour mode",
@@ -698,7 +709,7 @@
       "setable": true,
       "uiComponent": "toggle"
     },
-    "dukaone_boost": {
+    "duka_boost": {
       "type": "boolean",
       "title": {
         "en": "Boost",
@@ -709,7 +720,7 @@
       "uiComponent": "toggle",
       "uiQuickAction": true
     },
-    "dukaone_fan_rpm": {
+    "duka_fan_rpm": {
       "type": "number",
       "title": {
         "en": "Fan speed",
@@ -727,7 +738,7 @@
       "step": 1,
       "decimals": 0
     },
-    "dukaone_filter_days": {
+    "duka_filter_days": {
       "type": "number",
       "title": {
         "en": "Filter lifetime",
@@ -744,7 +755,7 @@
       "min": 0,
       "max": 1000
     },
-    "dukaone_interval": {
+    "duka_interval": {
       "type": "boolean",
       "title": {
         "en": "Interval ventilation",
@@ -754,7 +765,7 @@
       "setable": true,
       "uiComponent": "toggle"
     },
-    "dukaone_max_speed": {
+    "duka_max_speed": {
       "type": "number",
       "title": {
         "en": "Maximum speed",
@@ -772,7 +783,7 @@
       "step": 1,
       "decimals": 0
     },
-    "dukaone_mode": {
+    "duka_mode": {
       "type": "enum",
       "title": {
         "en": "Ventilation mode",
@@ -805,7 +816,7 @@
         }
       ]
     },
-    "dukaone_silent_speed": {
+    "duka_silent_speed": {
       "type": "number",
       "title": {
         "en": "Silent speed",

@@ -21,7 +21,8 @@
     "errors": {
       "device_id": "Indtast enheds-id'et.",
       "wrong_model_s6w": "Denne enhed er en DUKA smart ventilator. Tilføj den under DUKA smart ventilator.",
-      "wrong_model_smart": "Denne enhed er en DUKA S6W. Tilføj den under DUKA S6W."
+      "wrong_model_smart": "Denne enhed er en DUKA S6W. Tilføj den under DUKA S6W.",
+      "unsupported_model": "Denne DUKA-model understøttes ikke."
     }
   }
 }

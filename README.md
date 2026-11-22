@@ -3,19 +3,21 @@
 Unofficial [Homey Pro](https://homey.app) app for **DUKA** ventilation units.
 The app talks to the unit directly over UDP on your local network, using the
 same protocol as the
-[Home Assistant integration](https://github.com/dingusdk/ha-dukaone).
+[Home Assistant integration](https://github.com/dingusdk/ha-duka).
 
 > Not affiliated with DUKA Ventilation. Use at your own risk.
 
 ## Supported models
 
-- **DUKA One S6W** and related heat recovery units: fan speed, ventilation
-  mode, humidity, filter status and filter reset.
+- **DUKA One S6W** (unit type 14): fan speed, ventilation mode, humidity,
+  filter status and filter reset.
 - **DUKA smart fans** (unit type 6): boost, 24-hour mode, interval ventilation,
   silent and maximum speed settings, humidity, room temperature and fan RPM.
+  The running speed is automatic; silent and maximum define its limits, and
+  the current RPM is shown.
 
-The app detects the model during pairing and enables only the controls that
-the unit reports.
+The app detects the model during pairing and uses the matching driver. Other
+unit types are rejected as unsupported.
 
 ## Features
 
@@ -49,8 +51,8 @@ install the development build with the Homey CLI:
 ```bash
 npm install --global homey
 homey login
-git clone https://github.com/SorenHJohansen/homey-dukaone.git
-cd homey-dukaone
+git clone https://github.com/SorenHJohansen/homey-duka.git
+cd homey-duka
 homey app run --remote
 ```
 
@@ -89,6 +91,10 @@ The protocol implementation lives in
 The app communicates only with the units on your local network. It does not
 send data to any cloud service and does not collect analytics.
 
+The DUKA protocol is plaintext and unauthenticated. The device ID and password
+are sent to the unit on your local network, and any device on that network
+could spoof a reply. Use the app only on a trusted network.
+
 ## Development
 
 ```bash
@@ -103,8 +109,8 @@ npx homey app run --remote        # run on a Homey
 ## Credits
 
 The DUKA protocol was reverse engineered by the
-[ha-dukaone](https://github.com/dingusdk/ha-dukaone) project and its Python
-`dukaonesdk`. This app is an independent JavaScript implementation of the same
+[ha-duka](https://github.com/dingusdk/ha-duka) project and its Python
+`dukasdk`. This app is an independent JavaScript implementation of the same
 protocol.
 
 ## License

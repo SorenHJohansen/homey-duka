@@ -21,7 +21,8 @@
     "errors": {
       "device_id": "Enter the device ID.",
       "wrong_model_s6w": "This unit is a DUKA smart fan. Add it under DUKA smart fan.",
-      "wrong_model_smart": "This unit is a DUKA S6W. Add it under DUKA S6W."
+      "wrong_model_smart": "This unit is a DUKA S6W. Add it under DUKA S6W.",
+      "unsupported_model": "This DUKA model is not supported."
     }
   }
 }
