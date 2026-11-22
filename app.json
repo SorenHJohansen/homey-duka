@@ -1888,7 +1888,7 @@
       },
       "getable": true,
       "setable": false,
-      "uiComponent": "sensor"
+      "uiComponent": null
     },
     "duka_silent_active": {
       "type": "boolean",

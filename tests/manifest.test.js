@@ -208,7 +208,15 @@ test('the smart fan exposes its unit settings', () => {
   assert.equal(byId.get('silent_start').pattern, '^([01]?[0-9]|2[0-3]):[0-5][0-9]$');
 });
 
-test('the schedule widget is limited to the S6W', () => {  const widget = read('widgets/duka_schedule/widget.compose.json');
+test('the schedule text stays available without taking tile space', () => {
+  const schedule = read('.homeycompose/capabilities/duka_schedule_text.json');
+  assert.equal(schedule.type, 'string');
+  assert.equal(schedule.uiComponent, null);
+  assert.equal(schedule.getable, true);
+});
+
+test('the schedule widget is limited to the S6W', () => {
+  const widget = read('widgets/duka_schedule/widget.compose.json');
   assert.equal(widget.devices.type, 'app');
   assert.equal(widget.devices.singular, true);
   assert.equal(widget.devices.filter.capabilities, 'duka_schedule_text');
