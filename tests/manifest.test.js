@@ -17,6 +17,8 @@ test('runtime modules exist and load', () => {
     '../lib/duka-client',
     '../lib/duka-pair',
     '../lib/duka-family',
+    '../lib/duka-values',
+    '../lib/duka-backoff',
   ]) {
     assert.doesNotThrow(() => require(module), `cannot load ${module}`);
   }

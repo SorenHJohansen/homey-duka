@@ -233,6 +233,43 @@ function makePairHandlers(searchResults, probeResult) {
   return handlers;
 }
 
+test('refresh requests are coalesced per device', async () => {
+  const socket = new FakeSocket();
+  const timers = new Map();
+  let nextTimerId = 0;
+  const client = new DukaClient({
+    createSocket: () => socket,
+    delay: fastDelay,
+    broadcastAddresses: () => ['192.0.2.255'],
+    setTimeout: (fn) => {
+      const timer = { id: (nextTimerId += 1), fn };
+      timers.set(timer.id, timer);
+      return timer;
+    },
+    clearTimeout: (timer) => timers.delete(timer.id),
+  });
+
+  await client.start();
+  const device = client._ensureDevice({
+    id: DEVICE,
+    password: '1111',
+    address: '192.0.2.10',
+    family: 's6w',
+  });
+
+  client._scheduleRefresh(device, 100);
+  client._scheduleRefresh(device, 100);
+  assert.equal(timers.size, 1);
+
+  const [timer] = timers.values();
+  timers.clear();
+  timer.fn();
+  await fastDelay();
+
+  assert.ok(socket.sent.some((entry) => entry.packet.includes(0xb7)));
+  await client.stop();
+});
+
 test('commands reject when the socket send fails', async () => {
   const { client, socket } = makeClient();
   await client.start();

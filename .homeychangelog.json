@@ -6,5 +6,9 @@
   "0.2.0": {
     "en": "Renamed to DUKA. Pairing now handles units that do not report a model, unsupported models are rejected, the two firmware families use separate parameter sizes, credentials are no longer broadcast, and client tests were added.",
     "da": "Omdøbt til DUKA. Parring håndterer nu enheder uden modelrapport, ukendte modeller afvises, de to firmwarefamilier bruger separate parameterstørrelser, legitimationsoplysninger sendes ikke længere via broadcast, og der er tilføjet klienttests."
+  },
+  "0.2.1": {
+    "en": "Reduce unnecessary updates and traffic: round temperature to 0.1 C, add a 100 rpm deadband, coalesce status refreshes, debounce sliders, serialize commands per device, and back off polling and firmware retries.",
+    "da": "Reducer unødvendige opdateringer og trafik: temperatur afrundes til 0,1 C, 100 omdr./min. dødbånd, samlede statusopdateringer, debounce på skydere, serielle kommandoer pr. enhed og længere intervaller for offline enheder og firmwareforsøg."
   }
 }

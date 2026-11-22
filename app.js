@@ -3,8 +3,13 @@
 const Homey = require('homey');
 
 const { DukaClient } = require('./lib/duka-client');
+const {
+  FRESH_INTERVAL,
+  pollIntervalForAge,
+  firmwareRetryInterval,
+} = require('./lib/duka-backoff');
 
-const POLL_INTERVAL = 10 * 1000;
+const POLL_INTERVAL = FRESH_INTERVAL;
 
 class DukaApp extends Homey.App {
   async onInit() {
@@ -42,34 +47,35 @@ class DukaApp extends Homey.App {
     let needsDiscovery = false;
 
     for (const device of this.duka.devices.values()) {
-      // When the address is unknown or the unit has not answered lately, use
-      // the search packet instead of broadcasting a packet with credentials.
-      if (!device.address || now - (device.lastSeen || 0) > 30 * 1000) {
+      const lastActivity = device.lastSeen || device.createdAt || now;
+      const age = now - lastActivity;
+      // Subtract a second so timer jitter does not skip every other poll.
+      if (device.lastPollAt && now - device.lastPollAt < pollIntervalForAge(age) - 1000) {
+        continue;
+      }
+      device.lastPollAt = now;
+
+      // Learn a stale address with the search packet, which has no password.
+      if (!device.address || age > 30 * 1000) {
         needsDiscovery = true;
         continue;
       }
+
       this.duka.requestStatus(device).catch(() => {});
+
+      // Firmware is informational. Keep the status request first and retry
+      // the firmware only a few times, then at a slow interval.
+      if (!device.firmwareVersion) {
+        const retry = firmwareRetryInterval(device.firmwareAttempts || 0);
+        if (now - (device.firmwareRequestedAt || 0) >= retry) {
+          device.firmwareRequestedAt = now;
+          device.firmwareAttempts = (device.firmwareAttempts || 0) + 1;
+          this.duka.requestFirmware(device).catch(() => {});
+        }
+      }
     }
 
     if (needsDiscovery) this.duka.discover().catch(() => {});
-
-    // The unit only handles one request at a time, so ask for firmware
-    // information after the status replies have had a moment to arrive.
-    const missingFirmware = [...this.duka.devices.values()].filter(
-      (device) => device.address && !device.firmwareVersion,
-    );
-    if (missingFirmware.length > 0) {
-      const schedule =
-        typeof this.homey.setTimeout === 'function'
-          ? this.homey.setTimeout.bind(this.homey)
-          : setTimeout;
-      schedule(() => {
-        for (const device of missingFirmware) {
-          if (!this.duka.getDevice(device.id)) continue;
-          this.duka.requestFirmware(device).catch(() => {});
-        }
-      }, 700);
-    }
   }
 
   async onUninit() {
