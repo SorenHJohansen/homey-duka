@@ -227,5 +227,30 @@
         "step": 1
       }
     ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Reporting"
+    },
+    "children": [
+      {
+        "id": "humidity_step",
+        "type": "number",
+        "label": {
+          "en": "Humidity deadband"
+        },
+        "value": 5,
+        "min": 1,
+        "max": 25,
+        "step": 1,
+        "units": {
+          "en": "%RH"
+        },
+        "hint": {
+          "en": "Only publish a humidity change of at least this many points."
+        }
+      }
+    ]
   }
 ]

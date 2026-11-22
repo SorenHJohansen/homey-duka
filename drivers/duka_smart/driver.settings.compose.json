@@ -275,5 +275,74 @@
         ]
       }
     ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Reporting",
+      "da": "Rapportering"
+    },
+    "children": [
+      {
+        "id": "humidity_step",
+        "type": "number",
+        "label": {
+          "en": "Humidity deadband",
+          "da": "Fugt-dødbånd"
+        },
+        "value": 5,
+        "min": 1,
+        "max": 25,
+        "step": 1,
+        "units": {
+          "en": "%RH",
+          "da": "%RF"
+        },
+        "hint": {
+          "en": "Only publish a humidity change of at least this many points.",
+          "da": "Send kun en fugtændring på mindst så mange point."
+        }
+      },
+      {
+        "id": "temperature_step",
+        "type": "number",
+        "label": {
+          "en": "Temperature deadband",
+          "da": "Temperatur-dødbånd"
+        },
+        "value": 0.1,
+        "min": 0.1,
+        "max": 5,
+        "step": 0.1,
+        "units": {
+          "en": "°C",
+          "da": "°C"
+        },
+        "hint": {
+          "en": "Only publish a temperature change of at least this much.",
+          "da": "Send kun en temperaturændring på mindst så meget."
+        }
+      },
+      {
+        "id": "rpm_step",
+        "type": "number",
+        "label": {
+          "en": "Fan RPM deadband",
+          "da": "Omdrejnings-dødbånd"
+        },
+        "value": 100,
+        "min": 10,
+        "max": 2000,
+        "step": 10,
+        "units": {
+          "en": "rpm",
+          "da": "omdr./min"
+        },
+        "hint": {
+          "en": "Only publish a fan speed change of at least this many rpm.",
+          "da": "Send kun en hastighedsændring på mindst så mange omdr./min."
+        }
+      }
+    ]
   }
 ]

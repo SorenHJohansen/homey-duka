@@ -6,6 +6,7 @@ const assert = require('node:assert/strict');
 const {
   roundToStep,
   changedByAtLeast,
+  stepsFromSettings,
   TEMPERATURE_STEP,
   RPM_STEP,
   HUMIDITY_STEP,
@@ -36,6 +37,25 @@ test('humidity uses a 5 point deadband', () => {
   assert.equal(changedByAtLeast(60, 65, HUMIDITY_STEP), true);
   assert.equal(changedByAtLeast(60, 55, HUMIDITY_STEP), true);
   assert.equal(changedByAtLeast(null, 45, HUMIDITY_STEP), true);
+});
+
+test('deadbands come from settings with safe fallbacks', () => {
+  assert.deepEqual(stepsFromSettings({}), {
+    humidity: HUMIDITY_STEP,
+    temperature: TEMPERATURE_STEP,
+    rpm: RPM_STEP,
+  });
+
+  assert.deepEqual(
+    stepsFromSettings({ humidity_step: 8, temperature_step: 0.5, rpm_step: 200 }),
+    { humidity: 8, temperature: 0.5, rpm: 200 },
+  );
+
+  assert.equal(stepsFromSettings({ humidity_step: 'abc' }).humidity, HUMIDITY_STEP);
+  assert.equal(stepsFromSettings({ humidity_step: 100 }).humidity, 25);
+  assert.equal(stepsFromSettings({ humidity_step: 0 }).humidity, 1);
+  assert.equal(stepsFromSettings({ rpm_step: 1 }).rpm, 10);
+  assert.equal(stepsFromSettings({ temperature_step: 0 }).temperature, 0.1);
 });
 
 test('polling backs off for offline units', () => {

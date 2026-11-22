@@ -53,6 +53,9 @@ unit types are rejected as unsupported.
 - **Sensors**: humidity, room temperature and fan RPM, depending on the model.
   The fan RPM is recorded in Homey Insights, so you can see when the fan ran
   and how fast.
+- **Reporting deadbands**: humidity, temperature and fan RPM changes are only
+  published when they move by at least the configured amount, set per device
+  in the device settings.
 - **Filter status**: an alarm when the filter needs replacing, the remaining
   filter lifetime in days, and a maintenance action to reset the filter timer.
 - **Flow cards** for modes, speeds, timer mode, schedule, boost, 24-hour mode,

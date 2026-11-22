@@ -153,6 +153,7 @@ test('the S6W exposes the unit settings', () => {  const settings = read('driver
     'exhaust_speed_2',
     'supply_speed_3',
     'exhaust_speed_3',
+    'humidity_step',
   ]) {
     assert.ok(byId.has(id), `missing setting ${id}`);
   }
@@ -197,6 +198,9 @@ test('the smart fan exposes its unit settings', () => {
     'silent_end',
     'turn_off_delay',
     'turn_on_delay',
+    'humidity_step',
+    'temperature_step',
+    'rpm_step',
   ]) {
     assert.ok(byId.has(id), `missing setting ${id}`);
   }
