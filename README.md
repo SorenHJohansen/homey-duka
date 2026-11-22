@@ -82,11 +82,11 @@ npx homey app run                 # run on a Homey
 
 ### Troubleshooting the CLI
 
-If `homey app build` fails with `EACCES: permission denied, mkdir '/home/tmp'`,
-the Homey CLI (4.6.3) is mishandling the trailing newline in the output of
-`npm ls` on newer npm versions. Install npm 10 for the build, or apply this
-one-line fix in the CLI's `lib/NpmCommands.js`: filter empty lines before
-`path.relative` is applied.
+If you run the CLI with `--path` from outside the app folder and the build
+fails with `EACCES: permission denied, mkdir '/home/tmp'`, this is a Homey CLI
+4.6.3 bug: it resolves the empty line in the output of `npm ls` against the
+current directory. Run the command from inside the app folder instead, or
+filter empty lines before `path.relative` in the CLI's `lib/NpmCommands.js`.
 
 ## Credits
 
