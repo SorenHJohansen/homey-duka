@@ -24,7 +24,8 @@ on your local network, using the same protocol as the
   manually.
 - **Per-unit capabilities**: during pairing the app only enables the fan speed,
   mode, humidity and filter capabilities that the unit reports. A Duka One S6W
-  gets all of them; a simpler one-way unit gets on/off and fan speed only.
+  gets all of them; a simpler one-way unit gets on/off and fan speed only. On
+  units without a manual speed, the slider picks low, medium or high.
 
 ## Requirements
 

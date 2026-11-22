@@ -63,6 +63,7 @@ class DukaOneDriver extends Homey.Driver {
         firmware: info.firmwareVersion || null,
         unitType: info.unitType === null ? null : info.unitType,
         capabilities,
+        manualSpeed: info.manualSpeed !== null,
       };
     });
   }

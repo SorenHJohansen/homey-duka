@@ -38,6 +38,9 @@ class DukaOneDevice extends Homey.Device {
   async onInit() {
     this.deviceId = String(this.getData().id || '').trim().toUpperCase();
     this.client = this.homey.app.duka;
+    // Units that do not report a manual speed only have the three fixed
+    // speeds, so the slider is mapped to those instead.
+    this.supportsManualSpeed = this.getStoreValue('manualSpeed') !== false;
 
     this.state = this.client.registerDevice({
       id: this.deviceId,
@@ -69,6 +72,10 @@ class DukaOneDevice extends Homey.Device {
       this.registerCapabilityListener('dim', async (value) => {
         if (value <= 0) {
           await this.client.turnOff(this.state);
+          return;
+        }
+        if (!this.supportsManualSpeed) {
+          await this.setSpeedPercent(value);
           return;
         }
         await this.client.setManualSpeed(this.state, Math.round(value * 255));
@@ -160,12 +167,21 @@ class DukaOneDevice extends Homey.Device {
     await this.client.setSpeed(this.state, speed);
   }
 
+  async setSpeedPercent(value) {
+    const speed = value <= 0.25 ? SPEED.LOW : value <= 0.6 ? SPEED.MEDIUM : SPEED.HIGH;
+    await this.client.setSpeed(this.state, speed);
+  }
+
   async setManualPercent(percent) {
     if (!this.hasCapability('dim')) {
       throw new Error('This Duka One unit has no manual fan speed');
     }
     if (percent <= 0) {
       await this.client.turnOff(this.state);
+      return;
+    }
+    if (!this.supportsManualSpeed) {
+      await this.setSpeedPercent(percent / 100);
       return;
     }
     const value = Math.round((percent / 100) * 255);

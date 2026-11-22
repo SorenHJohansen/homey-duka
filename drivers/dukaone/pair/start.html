@@ -402,7 +402,8 @@
             data: { id: info.id },
             store: {
               password: info.password,
-              address: info.address || ""
+              address: info.address || "",
+              manualSpeed: info.manualSpeed === true
             }
           };
           if (info.capabilities && info.capabilities.length) {
