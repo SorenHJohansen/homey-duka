@@ -1,15 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
   <rect width="1000" height="1000" fill="#cd2439"/>
   <g transform="translate(500 500) scale(0.8) translate(-480 -480)">
-    <g fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="400" cy="400" r="260"/>
-    <g transform="translate(400 400) scale(0.8)">
-      <path d="M0 -34 C 74 -86 196 -74 238 -8 C 214 66 118 106 56 78 C 18 60 2 22 0 -34 Z" transform="rotate(-6)"/>
-      <path d="M0 -34 C 74 -86 196 -74 238 -8 C 214 66 118 106 56 78 C 18 60 2 22 0 -34 Z" transform="rotate(114)"/>
-      <path d="M0 -34 C 74 -86 196 -74 238 -8 C 214 66 118 106 56 78 C 18 60 2 22 0 -34 Z" transform="rotate(234)"/>
-      <circle r="58"/>
-    </g>
-    <path d="M760 560 C 720 620 700 660 700 700 C 700 740 730 770 770 770 C 810 770 840 740 840 700 C 840 660 800 610 760 560 Z"/>
-  </g>
+    
+  <circle cx="400" cy="400" r="260" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 397.8 379.04 C 440.06 342.18 516.06 341.67 546.23 379.64 C 536.23 426.83 479.63 457.71 439.58 444.47 C 414.99 435.83 402.66 413.44 397.8 379.04 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 419.26 408.57 C 430.05 463.6 392.49 529.68 344.51 536.82 C 308.65 504.57 310.2 440.1 341.7 412.05 C 361.48 395.06 387.03 395.58 419.26 408.57 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 382.95 412.39 C 329.9 394.22 291.45 328.66 309.25 283.54 C 355.12 268.61 410.17 302.18 418.72 343.49 C 423.54 369.11 410.31 390.98 382.95 412.39 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="400" cy="400" r="56" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M760 560 C 720 620 700 660 700 700 C 700 740 730 770 770 770 C 810 770 840 740 840 700 C 840 660 800 610 760 560 Z" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+
   </g>
 </svg>
