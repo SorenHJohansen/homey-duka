@@ -1,7 +1,9 @@
 {
   "pair": {
-    "title": "Tilføj en Duka One",
-    "intro": "Søg efter Duka One-enheder på netværket, eller indtast enheds-id'et fra Duka One-appen.",
+    "titleS6w": "Tilføj en Duka One S6W",
+    "introS6w": "Søg efter Duka One S6W-enheder på netværket, eller indtast enheds-id'et fra Duka One-appen.",
+    "titleSmart": "Tilføj en Duka One smart ventilator",
+    "introSmart": "Søg efter Duka One smart-ventilatorer på netværket, eller indtast enheds-id'et fra Duka One-appen.",
     "search": "Søg",
     "searching": "Søger efter enheder...",
     "noneFound": "Ingen enheder svarede. Indtast enheds-id'et manuelt.",
@@ -17,7 +19,9 @@
     "add": "Tilføj enhed",
     "verifying": "Kontakter enheden...",
     "errors": {
-      "device_id": "Indtast enheds-id'et."
+      "device_id": "Indtast enheds-id'et.",
+      "wrong_model_s6w": "Denne enhed er en smart ventilator. Tilføj den under Duka One smart ventilator.",
+      "wrong_model_smart": "Denne enhed er en S6W-varmegenvinding. Tilføj den under Duka One S6W."
     }
   }
 }

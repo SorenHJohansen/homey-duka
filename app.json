@@ -17,7 +17,7 @@
     "da": "Styr Duka One ventilationsenheder på dit lokale netværk."
   },
   "category": "climate",
-  "brandColor": "#0e6b5c",
+  "brandColor": "#0f8a75",
   "tags": {
     "en": [
       "duka",
@@ -102,6 +102,140 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=dukaone"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_boost_true",
+        "title": {
+          "en": "Boost turned on",
+          "da": "Boost blev slået til"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_boost_false",
+        "title": {
+          "en": "Boost turned off",
+          "da": "Boost blev slået fra"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_24h_true",
+        "title": {
+          "en": "24 hour mode turned on",
+          "da": "24-timers tilstand blev slået til"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_24h_false",
+        "title": {
+          "en": "24 hour mode turned off",
+          "da": "24-timers tilstand blev slået fra"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_interval_true",
+        "title": {
+          "en": "Interval ventilation turned on",
+          "da": "Intervalventilation blev slået til"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_interval_false",
+        "title": {
+          "en": "Interval ventilation turned off",
+          "da": "Intervalventilation blev slået fra"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_silent_speed_changed",
+        "title": {
+          "en": "The silent speed changed",
+          "da": "Den lydsvage hastighed blev ændret"
+        },
+        "tokens": [
+          {
+            "name": "dukaone_silent_speed",
+            "type": "number",
+            "title": {
+              "en": "Speed",
+              "da": "Hastighed"
+            },
+            "example": 60
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
+          }
+        ]
+      },
+      {
+        "id": "dukaone_max_speed_changed",
+        "title": {
+          "en": "The maximum speed changed",
+          "da": "Den maksimale hastighed blev ændret"
+        },
+        "tokens": [
+          {
+            "name": "dukaone_max_speed",
+            "type": "number",
+            "title": {
+              "en": "Speed",
+              "da": "Hastighed"
+            },
+            "example": 100
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone_smart"
           }
         ]
       }
@@ -270,7 +404,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=dukaone_smart"
           },
           {
             "type": "dropdown",
@@ -312,7 +446,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=dukaone_smart"
           },
           {
             "type": "dropdown",
@@ -354,7 +488,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=dukaone_smart"
           },
           {
             "type": "dropdown",
@@ -396,7 +530,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=dukaone_smart"
           },
           {
             "type": "range",
@@ -426,7 +560,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=dukaone"
+            "filter": "driver_id=dukaone_smart"
           },
           {
             "type": "range",
@@ -447,25 +581,18 @@
   "drivers": [
     {
       "name": {
-        "en": "Duka One ventilation unit",
-        "da": "Duka One ventilationsenhed"
+        "en": "Duka One S6W",
+        "da": "Duka One S6W"
       },
       "class": "fan",
       "capabilities": [
         "onoff",
         "dim",
         "measure_humidity",
-        "measure_temperature",
         "dukaone_mode",
         "alarm_filter",
         "dukaone_filter_days",
-        "button.reset_filter",
-        "dukaone_boost",
-        "dukaone_24h",
-        "dukaone_interval",
-        "dukaone_silent_speed",
-        "dukaone_max_speed",
-        "dukaone_fan_rpm"
+        "button.reset_filter"
       ],
       "capabilitiesOptions": {
         "dim": {
@@ -503,6 +630,41 @@
         }
       ],
       "id": "dukaone"
+    },
+    {
+      "name": {
+        "en": "Duka One smart fan",
+        "da": "Duka One smart ventilator"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "measure_humidity",
+        "measure_temperature",
+        "dukaone_boost",
+        "dukaone_24h",
+        "dukaone_interval",
+        "dukaone_silent_speed",
+        "dukaone_max_speed",
+        "dukaone_fan_rpm"
+      ],
+      "images": {
+        "small": "/drivers/dukaone_smart/assets/images/small.png",
+        "large": "/drivers/dukaone_smart/assets/images/large.png",
+        "xlarge": "/drivers/dukaone_smart/assets/images/xlarge.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "start"
+        }
+      ],
+      "id": "dukaone_smart"
     }
   ],
   "capabilities": {

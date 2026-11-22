@@ -1,7 +1,9 @@
 {
   "pair": {
-    "title": "Add a Duka One",
-    "intro": "Search your network for Duka One units, or enter the device ID from the Duka One app.",
+    "titleS6w": "Add a Duka One S6W",
+    "introS6w": "Search your network for Duka One S6W units, or enter the device ID from the Duka One app.",
+    "titleSmart": "Add a Duka One smart fan",
+    "introSmart": "Search your network for Duka One smart fans, or enter the device ID from the Duka One app.",
     "search": "Search",
     "searching": "Searching for units...",
     "noneFound": "No units answered. Enter the device ID manually.",
@@ -17,7 +19,9 @@
     "add": "Add device",
     "verifying": "Contacting the unit...",
     "errors": {
-      "device_id": "Enter the device ID."
+      "device_id": "Enter the device ID.",
+      "wrong_model_s6w": "This unit is a smart fan. Add it under Duka One smart fan.",
+      "wrong_model_smart": "This unit is an S6W heat recovery unit. Add it under Duka One S6W."
     }
   }
 }

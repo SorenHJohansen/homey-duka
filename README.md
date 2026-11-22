@@ -57,9 +57,12 @@ Use `homey app install` to leave it installed.
 ## Pairing
 
 1. Open the Homey app and choose **Devices → Add device → Duka One**.
-2. Press **Search**. Units that answer are listed with their device ID and IP;
+2. Pick the device type: **Duka One S6W** for the heat recovery unit or
+   **Duka One smart fan** for the smart fan model. The search only lists units
+   of the type you picked.
+3. Press **Search**. Units that answer are listed with their device ID and IP;
    pick one, or fill in the fields by hand.
-3. Enter the password (default `1111`), give the unit a name and press
+4. Enter the password (default `1111`), give the unit a name and press
    **Add device**.
 
 Discovery uses a UDP broadcast, which stays inside one subnet. If the unit is

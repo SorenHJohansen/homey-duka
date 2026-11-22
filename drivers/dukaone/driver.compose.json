@@ -1,24 +1,17 @@
 {
   "name": {
-    "en": "Duka One ventilation unit",
-    "da": "Duka One ventilationsenhed"
+    "en": "Duka One S6W",
+    "da": "Duka One S6W"
   },
   "class": "fan",
   "capabilities": [
     "onoff",
     "dim",
     "measure_humidity",
-    "measure_temperature",
     "dukaone_mode",
     "alarm_filter",
     "dukaone_filter_days",
-    "button.reset_filter",
-    "dukaone_boost",
-    "dukaone_24h",
-    "dukaone_interval",
-    "dukaone_silent_speed",
-    "dukaone_max_speed",
-    "dukaone_fan_rpm"
+    "button.reset_filter"
   ],
   "capabilitiesOptions": {
     "dim": {

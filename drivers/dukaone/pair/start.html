@@ -260,9 +260,15 @@
 </div>
 
 <script type="application/javascript">
+  window.DUKA_FAMILY = "s6w";
+</script>
+
+<script type="application/javascript">
   (function () {
     "use strict";
 
+    var FAMILY = window.DUKA_FAMILY || "s6w";
+    var IS_SMART = FAMILY === "smart";
     var booted = false;
     var HomeyRef = null;
     var busy = false;
@@ -386,7 +392,7 @@
 
       var password = byId("password").value.trim() || "1111";
       var address = byId("address").value.trim() || null;
-      var name = byId("name").value.trim() || "Duka One";
+      var name = byId("name").value.trim() || (IS_SMART ? "Duka One smart fan" : "Duka One S6W");
 
       setBusy(true);
       setText("addStatus", t("pair.verifying", "Contacting the unit..."));
@@ -397,20 +403,16 @@
         address: address
       })
         .then(function (info) {
-          var device = {
+          return HomeyRef.createDevice({
             name: name,
             data: { id: info.id },
             store: {
               password: info.password,
               address: info.address || "",
               manualSpeed: info.manualSpeed === true,
-              family: info.family || "s6w"
+              family: FAMILY
             }
-          };
-          if (info.capabilities && info.capabilities.length) {
-            device.capabilities = info.capabilities;
-          }
-          return HomeyRef.createDevice(device);
+          });
         })
         .then(function () {
           HomeyRef.done();
@@ -428,8 +430,8 @@
       booted = true;
       HomeyRef = Homey;
 
-      setText("title", t("pair.title", "Add a Duka One"));
-      setText("intro", t("pair.intro", "Search your network for Duka One units, or enter the device ID from the Duka One app."));
+      setText("title", t(IS_SMART ? "pair.titleSmart" : "pair.titleS6w", IS_SMART ? "Add a Duka One smart fan" : "Add a Duka One S6W"));
+      setText("intro", t(IS_SMART ? "pair.introSmart" : "pair.introS6w", IS_SMART ? "Search your network for Duka One smart fans, or enter the device ID from the Duka One app." : "Search your network for Duka One S6W units, or enter the device ID from the Duka One app."));
       setText("searchButton", t("pair.search", "Search"));
       setText("manualDivider", t("pair.orManual", "or enter it manually"));
       setText("deviceIdLabel", t("pair.deviceId", "Device ID"));
@@ -439,6 +441,8 @@
       setText("addressHint", t("pair.addressHint", "Leave empty to use the network broadcast address."));
       setText("nameLabel", t("pair.name", "Name"));
       setText("addButton", t("pair.add", "Add device"));
+
+      byId("name").value = IS_SMART ? "Duka One smart fan" : "Duka One S6W";
 
       byId("searchButton").addEventListener("click", search);
       byId("addButton").addEventListener("click", add);

@@ -1,0 +1,245 @@
+{
+  "actions": [
+    {
+      "id": "set_boost",
+      "title": {
+        "en": "Set boost",
+        "da": "Indstil boost"
+      },
+      "titleFormatted": {
+        "en": "Turn boost [[state]]",
+        "da": "Slå boost [[state]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "state",
+          "title": {
+            "en": "State",
+            "da": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "da": "Til"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_24h",
+      "title": {
+        "en": "Set 24 hour mode",
+        "da": "Indstil 24-timers tilstand"
+      },
+      "titleFormatted": {
+        "en": "Turn 24 hour mode [[state]]",
+        "da": "Slå 24-timers tilstand [[state]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "state",
+          "title": {
+            "en": "State",
+            "da": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "da": "Til"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_interval",
+      "title": {
+        "en": "Set interval ventilation",
+        "da": "Indstil intervalventilation"
+      },
+      "titleFormatted": {
+        "en": "Turn interval ventilation [[state]]",
+        "da": "Slå intervalventilation [[state]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "state",
+          "title": {
+            "en": "State",
+            "da": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "da": "Til"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_silent_speed",
+      "title": {
+        "en": "Set silent speed",
+        "da": "Indstil lydsvag hastighed"
+      },
+      "titleFormatted": {
+        "en": "Set silent speed to [[speed]] %",
+        "da": "Indstil lydsvag hastighed til [[speed]] %"
+      },
+      "args": [
+        {
+          "type": "range",
+          "name": "speed",
+          "title": {
+            "en": "Speed",
+            "da": "Hastighed"
+          },
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%"
+        }
+      ]
+    },
+    {
+      "id": "set_max_speed",
+      "title": {
+        "en": "Set maximum speed",
+        "da": "Indstil maksimal hastighed"
+      },
+      "titleFormatted": {
+        "en": "Set maximum speed to [[speed]] %",
+        "da": "Indstil maksimal hastighed til [[speed]] %"
+      },
+      "args": [
+        {
+          "type": "range",
+          "name": "speed",
+          "title": {
+            "en": "Speed",
+            "da": "Hastighed"
+          },
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%"
+        }
+      ]
+    }
+  ],
+  "triggers": [
+    {
+      "id": "dukaone_boost_true",
+      "title": {
+        "en": "Boost turned on",
+        "da": "Boost blev slået til"
+      }
+    },
+    {
+      "id": "dukaone_boost_false",
+      "title": {
+        "en": "Boost turned off",
+        "da": "Boost blev slået fra"
+      }
+    },
+    {
+      "id": "dukaone_24h_true",
+      "title": {
+        "en": "24 hour mode turned on",
+        "da": "24-timers tilstand blev slået til"
+      }
+    },
+    {
+      "id": "dukaone_24h_false",
+      "title": {
+        "en": "24 hour mode turned off",
+        "da": "24-timers tilstand blev slået fra"
+      }
+    },
+    {
+      "id": "dukaone_interval_true",
+      "title": {
+        "en": "Interval ventilation turned on",
+        "da": "Intervalventilation blev slået til"
+      }
+    },
+    {
+      "id": "dukaone_interval_false",
+      "title": {
+        "en": "Interval ventilation turned off",
+        "da": "Intervalventilation blev slået fra"
+      }
+    },
+    {
+      "id": "dukaone_silent_speed_changed",
+      "title": {
+        "en": "The silent speed changed",
+        "da": "Den lydsvage hastighed blev ændret"
+      },
+      "tokens": [
+        {
+          "name": "dukaone_silent_speed",
+          "type": "number",
+          "title": {
+            "en": "Speed",
+            "da": "Hastighed"
+          },
+          "example": 60
+        }
+      ]
+    },
+    {
+      "id": "dukaone_max_speed_changed",
+      "title": {
+        "en": "The maximum speed changed",
+        "da": "Den maksimale hastighed blev ændret"
+      },
+      "tokens": [
+        {
+          "name": "dukaone_max_speed",
+          "type": "number",
+          "title": {
+            "en": "Speed",
+            "da": "Hastighed"
+          },
+          "example": 100
+        }
+      ]
+    }
+  ]
+}
