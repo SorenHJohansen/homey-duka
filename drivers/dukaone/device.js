@@ -65,21 +65,27 @@ class DukaOneDevice extends Homey.Device {
       else await this.client.turnOff(this.state);
     });
 
-    this.registerCapabilityListener('dim', async (value) => {
-      if (value <= 0) {
-        await this.client.turnOff(this.state);
-        return;
-      }
-      await this.client.setManualSpeed(this.state, Math.round(value * 255));
-    });
+    if (this.hasCapability('dim')) {
+      this.registerCapabilityListener('dim', async (value) => {
+        if (value <= 0) {
+          await this.client.turnOff(this.state);
+          return;
+        }
+        await this.client.setManualSpeed(this.state, Math.round(value * 255));
+      });
+    }
 
-    this.registerCapabilityListener('dukaone_mode', async (value) => {
-      await this.setMode(value);
-    });
+    if (this.hasCapability('dukaone_mode')) {
+      this.registerCapabilityListener('dukaone_mode', async (value) => {
+        await this.setMode(value);
+      });
+    }
 
-    this.registerCapabilityListener('button.reset_filter', async () => {
-      await this.resetFilter();
-    });
+    if (this.hasCapability('button.reset_filter')) {
+      this.registerCapabilityListener('button.reset_filter', async () => {
+        await this.resetFilter();
+      });
+    }
 
     this.availabilityTimer = setInterval(() => this._checkAvailability(), AVAILABILITY_INTERVAL);
 
@@ -140,6 +146,9 @@ class DukaOneDevice extends Homey.Device {
   }
 
   async setMode(modeId) {
+    if (!this.hasCapability('dukaone_mode')) {
+      throw new Error('This Duka One unit has no ventilation mode');
+    }
     const mode = MODE_BY_ID[modeId];
     if (mode === undefined) throw new Error(`Unknown ventilation mode: ${modeId}`);
     await this.client.setMode(this.state, mode);
@@ -152,6 +161,9 @@ class DukaOneDevice extends Homey.Device {
   }
 
   async setManualPercent(percent) {
+    if (!this.hasCapability('dim')) {
+      throw new Error('This Duka One unit has no manual fan speed');
+    }
     if (percent <= 0) {
       await this.client.turnOff(this.state);
       return;
@@ -161,6 +173,9 @@ class DukaOneDevice extends Homey.Device {
   }
 
   async resetFilter() {
+    if (!this.hasCapability('button.reset_filter')) {
+      throw new Error('This Duka One unit has no filter timer');
+    }
     await this.client.resetFilter(this.state);
     if (this.getCapabilityValue('alarm_filter') !== false) {
       await this.setCapabilityValue('alarm_filter', false).catch(this.error);

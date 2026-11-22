@@ -22,6 +22,9 @@ on your local network, using the same protocol as the
 - **Discovery while pairing**: the app broadcasts on the local network and lists
   the units that answer. You can also enter the device ID and IP address
   manually.
+- **Per-unit capabilities**: during pairing the app only enables the fan speed,
+  mode, humidity and filter capabilities that the unit reports. A Duka One S6W
+  gets all of them; a simpler one-way unit gets on/off and fan speed only.
 
 ## Requirements
 

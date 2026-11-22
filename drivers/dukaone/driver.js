@@ -43,12 +43,26 @@ class DukaOneDriver extends Homey.Driver {
         address,
       });
 
+      // Only expose the capabilities the unit actually reports. The S6W
+      // family answers everything; simpler one-way units answer on/off and
+      // speed only.
+      const capabilities = ['onoff'];
+      if (info.speed !== null) capabilities.push('dim');
+      if (info.mode !== null) capabilities.push('dukaone_mode');
+      if (info.humidity !== null) capabilities.push('measure_humidity');
+      if (info.filterAlarm !== null) capabilities.push('alarm_filter');
+      if (info.filterTimer !== null) capabilities.push('dukaone_filter_days');
+      if (info.filterAlarm !== null || info.filterTimer !== null) {
+        capabilities.push('button.reset_filter');
+      }
+
       return {
         id: deviceId,
         password,
         address: info.address || address || '',
         firmware: info.firmwareVersion || null,
         unitType: info.unitType === null ? null : info.unitType,
+        capabilities,
       };
     });
   }

@@ -397,14 +397,18 @@
         address: address
       })
         .then(function (info) {
-          return HomeyRef.createDevice({
+          var device = {
             name: name,
             data: { id: info.id },
             store: {
               password: info.password,
               address: info.address || ""
             }
-          });
+          };
+          if (info.capabilities && info.capabilities.length) {
+            device.capabilities = info.capabilities;
+          }
+          return HomeyRef.createDevice(device);
         })
         .then(function () {
           HomeyRef.done();
