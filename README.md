@@ -1,6 +1,6 @@
 # DUKA for Homey
 
-[![CI](https://github.com/SorenHJohansen/homey-duka/actions/workflows/ci.yml/badge.svg)](https://github.com/SorenHJohansen/homey-duka/actions/workflows/ci.yml)
+[![CI](https://github.com/SorenHJohansen/homey-duka/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SorenHJohansen/homey-duka/actions/workflows/ci.yml)
 
 Unofficial [Homey Pro](https://homey.app) app for **DUKA** ventilation units.
 The app talks to the unit directly over UDP on your local network, using the
