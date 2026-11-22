@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Humidity setpoint",
+    "da": "Fugtsetpunkt"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "units": {
+    "en": "%RH",
+    "da": "%RF"
+  },
+  "min": 40,
+  "max": 80,
+  "step": 1,
+  "decimals": 0
+}

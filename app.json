@@ -924,6 +924,7 @@
       "capabilities": [
         "onoff",
         "duka_fan_speed",
+        "duka_humidity_setpoint",
         "measure_humidity",
         "duka_mode",
         "duka_timer_mode",
@@ -1732,6 +1733,24 @@
         "en": "The humidity is below the setpoint",
         "da": "Luftfugtigheden er under setpunktet"
       }
+    },
+    "duka_humidity_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "Humidity setpoint",
+        "da": "Fugtsetpunkt"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "units": {
+        "en": "%RH",
+        "da": "%RF"
+      },
+      "min": 40,
+      "max": 80,
+      "step": 1,
+      "decimals": 0
     },
     "duka_interval": {
       "type": "boolean",

@@ -5,6 +5,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
+const { S6W_CAPABILITIES, SMART_CAPABILITIES } = require('../lib/duka-capabilities');
+
 const root = path.join(__dirname, '..');
 
 function read(relativePath) {
@@ -55,6 +57,7 @@ test('drivers expose the expected capability sets', () => {
   for (const capability of [
     'onoff',
     'duka_fan_speed',
+    'duka_humidity_setpoint',
     'measure_humidity',
     'duka_mode',
     'duka_timer_mode',
@@ -102,6 +105,14 @@ test('drivers expose the expected capability sets', () => {
 test('fan speed is recorded in Insights', () => {  const rpm = read('.homeycompose/capabilities/duka_fan_rpm.json');
   assert.equal(rpm.type, 'number');
   assert.equal(rpm.insights, true);
+});
+
+test('the startup capability lists match the driver manifests', () => {
+  const s6w = read('drivers/duka/driver.compose.json');
+  const smart = read('drivers/duka_smart/driver.compose.json');
+
+  assert.deepEqual([...S6W_CAPABILITIES].sort(), [...s6w.capabilities].sort());
+  assert.deepEqual([...SMART_CAPABILITIES].sort(), [...smart.capabilities].sort());
 });
 
 test('the S6W fan speed is a titled slider', () => {
