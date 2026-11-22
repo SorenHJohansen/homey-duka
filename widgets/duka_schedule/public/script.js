@@ -35,6 +35,7 @@ let deviceId = null;
 let enabled = false;
 let entries = new Map();
 let busy = false;
+let pendingEntry = null;
 
 const byId = (id) => document.getElementById(id);
 
@@ -143,6 +144,7 @@ function render() {
           speed: Number(speed.value),
           minutes: timeParts.minutes,
           hours: timeParts.hours,
+          reserved: entry.reserved,
         };
         return saveEntry(next);
       };
@@ -185,7 +187,11 @@ async function load() {
 }
 
 async function saveEntry(entry) {
-  if (!deviceId || busy) return;
+  if (!deviceId) return;
+  if (busy) {
+    pendingEntry = entry;
+    return;
+  }
 
   setBusy(true);
   showMessage(t('widget.schedule.saving'), true);
@@ -202,6 +208,11 @@ async function saveEntry(entry) {
     await load();
   } finally {
     setBusy(false);
+    if (pendingEntry) {
+      const next = pendingEntry;
+      pendingEntry = null;
+      await saveEntry(next);
+    }
   }
 }
 

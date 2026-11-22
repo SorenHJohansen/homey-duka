@@ -27,6 +27,10 @@ test('a period ending at midnight is shown as 24:00', () => {
   assert.equal(summarizeSchedule([entry(3, 4, 1, 0, 0)]), 'Wed 24:00 S1');
 });
 
+test('an early period ending at 00:00 is not the end of the day', () => {
+  assert.equal(summarizeSchedule([entry(1, 1, 0, 0, 0)]), 'Mon 00:00 off');
+});
+
 test('an empty schedule summarizes to an empty string', () => {
   assert.equal(summarizeSchedule([]), '');
 });

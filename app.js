@@ -47,6 +47,9 @@ class DukaApp extends Homey.App {
     let needsDiscovery = false;
 
     for (const device of this.duka.devices.values()) {
+      // A schedule read owns the link while it runs.
+      if (device.scheduleBusy) continue;
+
       const lastActivity = device.lastSeen || device.createdAt || now;
       const age = now - lastActivity;
       // Subtract a second so timer jitter does not skip every other poll.

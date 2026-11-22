@@ -444,6 +444,69 @@ test('reads several schedule entries from one response', () => {
   });
 });
 
+test('smart 0x04 is the fan rpm', () => {
+  const response = buildResponse('1234567890123456', '1111', [0x04, 0x48, 0x03]);
+  const packet = protocol.parseResponse(response, { family: 'smart' });
+
+  assert.ok(packet);
+  assert.equal(packet.rpm, 840);
+});
+
+test('0x0b is three bytes for the S6W and one for the smart fan', () => {
+  const s6w = buildResponse('1234567890123456', '1111', [
+    0x0b, 0x1e, 0x2d, 0x00, 0x02, 0x01, 0x25, 0x32,
+  ]);
+  const s6wPacket = protocol.parseResponse(s6w, { family: 's6w' });
+  assert.ok(s6wPacket);
+  assert.equal(s6wPacket.timerSeconds, 30 + 45 * 60);
+  assert.equal(s6wPacket.speed, protocol.SPEED.LOW);
+  assert.equal(s6wPacket.humidity, 50);
+
+  const smart = buildResponse('1234567890123456', '1111', [0x0b, 0x01, 0x31, 0x0e]);
+  const smartPacket = protocol.parseResponse(smart, { family: 'smart' });
+  assert.ok(smartPacket);
+  assert.equal(smartPacket.motionRunning, true);
+  assert.equal(smartPacket.temperature, 14);
+});
+
+test('schedule writes keep the reserved byte and reject bad entries', () => {
+  const packet = protocol.scheduleEntryWritePacket(DEVICE, {
+    weekday: 1,
+    period: 2,
+    speed: 1,
+    reserved: 0x0f,
+    minutes: 0,
+    hours: 9,
+  });
+  assert.deepEqual(
+    packet.subarray(packet.length - 11, packet.length - 2),
+    Buffer.from([0xfe, 0x06, 0x77, 0x01, 0x02, 0x01, 0x0f, 0x00, 0x09]),
+  );
+
+  const endOfDay = protocol.scheduleEntryWritePacket(DEVICE, {
+    weekday: 1,
+    period: 4,
+    speed: 1,
+    minutes: 0,
+    hours: 24,
+  });
+  assert.deepEqual(
+    endOfDay.subarray(endOfDay.length - 11, endOfDay.length - 2),
+    Buffer.from([0xfe, 0x06, 0x77, 0x01, 0x04, 0x01, 0x00, 0x00, 0x00]),
+  );
+
+  for (const bad of [
+    { weekday: 1, period: 9, speed: 1, minutes: 0, hours: 6 },
+    { weekday: 99, period: 1, speed: 1, minutes: 0, hours: 6 },
+    { weekday: 1, period: 1, speed: 7, minutes: 0, hours: 6 },
+    { weekday: 1, period: 1, speed: 1, minutes: 0, hours: 25 },
+    { weekday: 1, period: 1, speed: 1, minutes: 0, hours: 24.5 },
+    { weekday: 1, period: 1, speed: 1, minutes: 30, hours: 24 },
+  ]) {
+    assert.throws(() => protocol.scheduleEntryWritePacket(DEVICE, bad));
+  }
+});
+
 test('readHeader exposes the device and the parameter offset', () => {
   const response = buildResponse('1234567890123456', '1111', [0x01, 0x01]);
   const header = protocol.readHeader(response);

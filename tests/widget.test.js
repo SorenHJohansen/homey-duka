@@ -46,8 +46,31 @@ test('the widget writes one entry and returns the fresh schedule', async () => {
     body: { deviceId: 'abc', entry: { weekday: 2, period: 3, speed: 2, hours: 6, minutes: 30 } },
   });
 
-  assert.deepEqual(written, [{ weekday: 2, period: 3, speed: 2, hours: 6, minutes: 30 }]);
+  assert.deepEqual(written, [
+    { weekday: 2, period: 3, speed: 2, reserved: 0, minutes: 30, hours: 6 },
+  ]);
   assert.equal(result.entries[0].period, 3);
+});
+
+test('the widget rejects an entry that is out of range', async () => {
+  const device = {
+    async setSchedulePeriod() {
+      throw new Error('should not be called');
+    },
+  };
+
+  for (const entry of [
+    { weekday: 1, period: 9, speed: 1, hours: 6, minutes: 0 },
+    { weekday: -1, period: 1, speed: 1, hours: 6, minutes: 0 },
+    { weekday: 1, period: 1, speed: 9, hours: 6, minutes: 0 },
+    { weekday: 1, period: 1, speed: 1, hours: 99, minutes: 0 },
+    { weekday: 1, period: 1, speed: 1, hours: 24, minutes: 30 },
+  ]) {
+    await assert.rejects(
+      api.setEntry({ homey: fakeHomey(device), body: { deviceId: 'abc', entry } }),
+      /Invalid schedule|24:00/,
+    );
+  }
 });
 
 test('the widget switches the schedule on and off', async () => {

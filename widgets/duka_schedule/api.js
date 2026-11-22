@@ -1,5 +1,7 @@
 'use strict';
 
+const { validateScheduleEntry } = require('../../lib/duka-protocol');
+
 function deviceFor(homey, deviceId) {
   if (!deviceId) throw new Error('No DUKA S6W device selected');
   const driver = homey.drivers.getDriver('duka');
@@ -20,7 +22,8 @@ module.exports = {
 
   async setEntry({ homey, body }) {
     const device = deviceFor(homey, body.deviceId);
-    const entries = await device.setSchedulePeriod(body.entry);
+    const entry = validateScheduleEntry(body.entry || {});
+    const entries = await device.setSchedulePeriod(entry);
     return { entries };
   },
 
