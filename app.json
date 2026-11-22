@@ -923,7 +923,7 @@
       "class": "fan",
       "capabilities": [
         "onoff",
-        "dim",
+        "duka_fan_speed",
         "measure_humidity",
         "duka_mode",
         "duka_timer_mode",
@@ -940,12 +940,6 @@
         "button.reset_filter"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "title": {
-            "en": "Fan speed",
-            "da": "Blæserhastighed"
-          }
-        },
         "button.reset_filter": {
           "maintenanceAction": true,
           "title": {
@@ -1682,6 +1676,24 @@
       },
       "min": 0,
       "max": 6000,
+      "step": 1,
+      "decimals": 0
+    },
+    "duka_fan_speed": {
+      "type": "number",
+      "title": {
+        "en": "Fan speed",
+        "da": "Blæserhastighed"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "units": {
+        "en": "%",
+        "da": "%"
+      },
+      "min": 0,
+      "max": 100,
       "step": 1,
       "decimals": 0
     },

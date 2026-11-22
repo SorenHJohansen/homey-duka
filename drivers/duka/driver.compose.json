@@ -6,7 +6,7 @@
   "class": "fan",
   "capabilities": [
     "onoff",
-    "dim",
+    "duka_fan_speed",
     "measure_humidity",
     "duka_mode",
     "duka_timer_mode",
@@ -23,12 +23,6 @@
     "button.reset_filter"
   ],
   "capabilitiesOptions": {
-    "dim": {
-      "title": {
-        "en": "Fan speed",
-        "da": "Bl\u00e6serhastighed"
-      }
-    },
     "button.reset_filter": {
       "maintenanceAction": true,
       "title": {

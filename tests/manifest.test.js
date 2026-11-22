@@ -54,7 +54,7 @@ test('drivers expose the expected capability sets', () => {
 
   for (const capability of [
     'onoff',
-    'dim',
+    'duka_fan_speed',
     'measure_humidity',
     'duka_mode',
     'duka_timer_mode',
@@ -93,6 +93,7 @@ test('drivers expose the expected capability sets', () => {
   assert.ok(!smart.capabilities.includes('duka_motion_active'));
 
   assert.ok(!s6w.capabilities.includes('duka_boost'));
+  assert.ok(!s6w.capabilities.includes('dim'));
   assert.ok(!smart.capabilities.includes('dim'));
   assert.equal(s6w.class, 'fan');
   assert.equal(smart.class, 'fan');
@@ -101,6 +102,17 @@ test('drivers expose the expected capability sets', () => {
 test('fan speed is recorded in Insights', () => {  const rpm = read('.homeycompose/capabilities/duka_fan_rpm.json');
   assert.equal(rpm.type, 'number');
   assert.equal(rpm.insights, true);
+});
+
+test('the S6W fan speed is a titled slider', () => {
+  const speed = read('.homeycompose/capabilities/duka_fan_speed.json');
+  assert.equal(speed.type, 'number');
+  assert.equal(speed.uiComponent, 'slider');
+  assert.equal(speed.title.en, 'Fan speed');
+  assert.equal(speed.units.en, '%');
+  assert.equal(speed.min, 0);
+  assert.equal(speed.max, 100);
+  assert.equal(speed.setable, true);
 });
 
 test('the S6W exposes the unit settings', () => {  const settings = read('drivers/duka/driver.settings.compose.json');
