@@ -1242,7 +1242,7 @@
         "duka_interval",
         "duka_silent_speed",
         "duka_max_speed",
-        "duka_fan_rpm",
+        "measure_fan_rpm",
         "duka_boost_minutes",
         "duka_silent_active",
         "duka_interval_active"
@@ -1741,25 +1741,6 @@
       "step": 1,
       "decimals": 0
     },
-    "duka_fan_rpm": {
-      "type": "number",
-      "title": {
-        "en": "Fan speed",
-        "da": "Blæserhastighed"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "insights": true,
-      "units": {
-        "en": "rpm",
-        "da": "omdr./min"
-      },
-      "min": 0,
-      "max": 6000,
-      "step": 1,
-      "decimals": 0
-    },
     "duka_fan_speed": {
       "type": "number",
       "title": {
@@ -2057,6 +2038,25 @@
           }
         }
       ]
+    },
+    "measure_fan_rpm": {
+      "type": "number",
+      "title": {
+        "en": "Fan RPM",
+        "da": "Blæserens omdrejningstal"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "units": {
+        "en": "rpm",
+        "da": "omdr./min"
+      },
+      "min": 0,
+      "max": 6000,
+      "step": 1,
+      "decimals": 0
     }
   }
 }

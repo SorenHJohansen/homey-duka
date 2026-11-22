@@ -51,8 +51,8 @@ unit types are rejected as unsupported.
   shown on the device, and a motion sensor row appears only when the unit
   reports one.
 - **Sensors**: humidity, room temperature and fan RPM, depending on the model.
-  The fan RPM is recorded in Homey Insights, so you can see when the fan ran
-  and how fast.
+  The fan RPM is recorded in Homey Insights and can be selected as the device
+  status indicator, so a glance at the tile shows how fast the fan runs.
 - **Reporting deadbands**: humidity, temperature and fan RPM changes are only
   published when they move by at least the configured amount, set per device
   in the device settings.

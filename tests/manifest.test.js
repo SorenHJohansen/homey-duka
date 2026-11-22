@@ -85,7 +85,7 @@ test('drivers expose the expected capability sets', () => {
     'duka_interval',
     'duka_silent_speed',
     'duka_max_speed',
-    'duka_fan_rpm',
+    'measure_fan_rpm',
     'duka_boost_minutes',
     'duka_silent_active',
     'duka_interval_active',
@@ -102,9 +102,16 @@ test('drivers expose the expected capability sets', () => {
   assert.equal(smart.class, 'fan');
 });
 
-test('fan speed is recorded in Insights', () => {  const rpm = read('.homeycompose/capabilities/duka_fan_rpm.json');
+test('fan RPM is recorded in Insights and can be the status indicator', () => {
+  const rpm = read('.homeycompose/capabilities/measure_fan_rpm.json');
   assert.equal(rpm.type, 'number');
   assert.equal(rpm.insights, true);
+  assert.equal(rpm.uiComponent, 'sensor');
+  assert.equal(rpm.units.en, 'rpm');
+
+  const smart = read('drivers/duka_smart/driver.compose.json');
+  const id = smart.capabilities.find((capability) => capability.includes('rpm'));
+  assert.match(id, /^measure_/);
 });
 
 test('the startup capability lists match the driver manifests', () => {

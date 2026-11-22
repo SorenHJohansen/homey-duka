@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Fan speed",
-    "da": "Blæserhastighed"
+    "en": "Fan RPM",
+    "da": "Blæserens omdrejningstal"
   },
   "getable": true,
   "setable": false,
