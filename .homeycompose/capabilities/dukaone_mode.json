@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Ventilation mode",
+    "da": "Ventilationstilstand"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "values": [
+    {
+      "id": "inout",
+      "title": {
+        "en": "In/out",
+        "da": "Ind/ud"
+      }
+    },
+    {
+      "id": "in",
+      "title": {
+        "en": "In",
+        "da": "Ind"
+      }
+    },
+    {
+      "id": "out",
+      "title": {
+        "en": "Out",
+        "da": "Ud"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "pair": {
+    "title": "Tilføj en Duka One",
+    "intro": "Søg efter Duka One-enheder på netværket, eller indtast enheds-id'et fra Duka One-appen.",
+    "search": "Søg",
+    "searching": "Søger efter enheder...",
+    "noneFound": "Ingen enheder svarede. Indtast enheds-id'et manuelt.",
+    "oneFound": "Fandt 1 enhed.",
+    "severalFound": "Fandt flere enheder. Vælg en nedenfor.",
+    "orManual": "eller indtast manuelt",
+    "deviceId": "Enheds-id",
+    "deviceIdHint": "Findes i Duka One-appen under enhedsoplysninger.",
+    "password": "Adgangskode",
+    "address": "IP-adresse (valgfri)",
+    "addressHint": "Lad feltet stå tomt for at bruge netværkets broadcast-adresse.",
+    "name": "Navn",
+    "add": "Tilføj enhed",
+    "verifying": "Kontakter enheden...",
+    "errors": {
+      "device_id": "Indtast enheds-id'et."
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": {
+    "en": "Duka One ventilation unit",
+    "da": "Duka One ventilationsenhed"
+  },
+  "class": "fan",
+  "capabilities": [
+    "onoff",
+    "dim",
+    "measure_humidity",
+    "dukaone_mode",
+    "alarm_filter",
+    "dukaone_filter_days",
+    "button.reset_filter"
+  ],
+  "capabilitiesOptions": {
+    "dim": {
+      "title": {
+        "en": "Fan speed",
+        "da": "Blæserhastighed"
+      }
+    },
+    "button.reset_filter": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reset filter timer",
+        "da": "Nulstil filtertimer"
+      },
+      "desc": {
+        "en": "Tells the unit that the filter has been replaced and starts a new 90 day filter period.",
+        "da": "Fortæller enheden at filteret er skiftet og starter en ny 90 dages filterperiode."
+      }
+    }
+  },
+  "images": {
+    "small": "/drivers/dukaone/assets/images/small.png",
+    "large": "/drivers/dukaone/assets/images/large.png",
+    "xlarge": "/drivers/dukaone/assets/images/xlarge.png"
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "pair": [
+    {
+      "id": "start"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "pair": {
+    "title": "Add a Duka One",
+    "intro": "Search your network for Duka One units, or enter the device ID from the Duka One app.",
+    "search": "Search",
+    "searching": "Searching for units...",
+    "noneFound": "No units answered. Enter the device ID manually.",
+    "oneFound": "Found 1 unit.",
+    "severalFound": "Found several units. Pick one below.",
+    "orManual": "or enter it manually",
+    "deviceId": "Device ID",
+    "deviceIdHint": "Shown in the Duka One app under device information.",
+    "password": "Password",
+    "address": "IP address (optional)",
+    "addressHint": "Leave empty to use the network broadcast address.",
+    "name": "Name",
+    "add": "Add device",
+    "verifying": "Contacting the unit...",
+    "errors": {
+      "device_id": "Enter the device ID."
+    }
+  }
+}

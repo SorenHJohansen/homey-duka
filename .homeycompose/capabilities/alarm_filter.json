@@ -1,0 +1,18 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Replace filter",
+    "da": "Skift filter"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insightsTitleTrue": {
+    "en": "The filter needs replacing",
+    "da": "Filteret skal skiftes"
+  },
+  "insightsTitleFalse": {
+    "en": "The filter is OK",
+    "da": "Filteret er OK"
+  }
+}

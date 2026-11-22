@@ -1,0 +1,49 @@
+{
+  "id": "dk.hjohansen.dukaone",
+  "version": "0.1.0",
+  "compatibility": ">=12.9.0",
+  "sdk": 3,
+  "runtime": "nodejs",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Duka One",
+    "da": "Duka One"
+  },
+  "description": {
+    "en": "Control Duka One ventilation units on your local network.",
+    "da": "Styr Duka One ventilationsenheder på dit lokale netværk."
+  },
+  "category": "climate",
+  "brandColor": "#0e6b5c",
+  "tags": {
+    "en": [
+      "duka",
+      "ventilation",
+      "fan",
+      "heat recovery",
+      "humidity"
+    ],
+    "da": [
+      "duka",
+      "ventilation",
+      "blæser",
+      "varmegenvinding",
+      "luftfugtighed"
+    ]
+  },
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Søren H. Johansen"
+  },
+  "source": "https://github.com/SorenHJohansen/homey-dukaone",
+  "bugs": {
+    "url": "https://github.com/SorenHJohansen/homey-dukaone/issues"
+  },
+  "support": "https://github.com/SorenHJohansen/homey-dukaone/issues"
+}

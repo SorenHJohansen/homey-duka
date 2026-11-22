@@ -1,0 +1,12 @@
+{
+  "name": "dk.hjohansen.dukaone",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Homey app for Duka One ventilation units",
+  "main": "app.js",
+  "scripts": {
+    "test": "node --test tests/",
+    "validate": "homey app validate --level debug",
+    "build": "homey app build"
+  }
+}

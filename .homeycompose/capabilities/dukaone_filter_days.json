@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Filter lifetime",
+    "da": "Filterlevetid"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "units": {
+    "en": "days",
+    "da": "dage"
+  },
+  "decimals": 1,
+  "min": 0,
+  "max": 1000
+}

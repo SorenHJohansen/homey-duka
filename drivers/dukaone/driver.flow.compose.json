@@ -1,0 +1,168 @@
+{
+  "actions": [
+    {
+      "id": "set_mode",
+      "title": {
+        "en": "Set ventilation mode",
+        "da": "Indstil ventilationstilstand"
+      },
+      "titleFormatted": {
+        "en": "Set ventilation mode to [[mode]]",
+        "da": "Indstil ventilationstilstand til [[mode]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "mode",
+          "title": {
+            "en": "Mode",
+            "da": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "inout",
+              "title": {
+                "en": "In/out (heat recovery)",
+                "da": "Ind/ud (varmegenvinding)"
+              }
+            },
+            {
+              "id": "in",
+              "title": {
+                "en": "In (supply air)",
+                "da": "Ind (indblæsning)"
+              }
+            },
+            {
+              "id": "out",
+              "title": {
+                "en": "Out (exhaust air)",
+                "da": "Ud (udsugning)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_speed",
+      "title": {
+        "en": "Set fan speed",
+        "da": "Indstil blæserhastighed"
+      },
+      "titleFormatted": {
+        "en": "Set fan speed to [[speed]]",
+        "da": "Indstil blæserhastighed til [[speed]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "speed",
+          "title": {
+            "en": "Speed",
+            "da": "Hastighed"
+          },
+          "values": [
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "da": "Fra"
+              }
+            },
+            {
+              "id": "low",
+              "title": {
+                "en": "Low",
+                "da": "Lav"
+              }
+            },
+            {
+              "id": "medium",
+              "title": {
+                "en": "Medium",
+                "da": "Mellem"
+              }
+            },
+            {
+              "id": "high",
+              "title": {
+                "en": "High",
+                "da": "Høj"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_manual_speed",
+      "title": {
+        "en": "Set manual fan speed",
+        "da": "Indstil manuel blæserhastighed"
+      },
+      "titleFormatted": {
+        "en": "Set manual fan speed to [[speed]] %",
+        "da": "Indstil manuel blæserhastighed til [[speed]] %"
+      },
+      "args": [
+        {
+          "type": "range",
+          "name": "speed",
+          "title": {
+            "en": "Speed",
+            "da": "Hastighed"
+          },
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%"
+        }
+      ]
+    },
+    {
+      "id": "reset_filter",
+      "title": {
+        "en": "Reset the filter timer",
+        "da": "Nulstil filtertiden"
+      }
+    }
+  ],
+  "triggers": [
+    {
+      "id": "dukaone_mode_changed",
+      "title": {
+        "en": "The ventilation mode changed",
+        "da": "Ventilationstilstanden blev ændret"
+      },
+      "tokens": [
+        {
+          "name": "dukaone_mode",
+          "type": "string",
+          "title": {
+            "en": "Mode",
+            "da": "Tilstand"
+          },
+          "example": {
+            "en": "In/out",
+            "da": "Ind/ud"
+          }
+        }
+      ]
+    },
+    {
+      "id": "alarm_filter_true",
+      "title": {
+        "en": "The filter needs replacing",
+        "da": "Filteret skal skiftes"
+      }
+    },
+    {
+      "id": "alarm_filter_false",
+      "title": {
+        "en": "The filter alarm was cleared",
+        "da": "Filteralarmen blev ryddet"
+      }
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "dk.hjohansen.dukaone",
+  "version": "0.1.0",
+  "compatibility": ">=12.9.0",
+  "sdk": 3,
+  "runtime": "nodejs",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Duka One",
+    "da": "Duka One"
+  },
+  "description": {
+    "en": "Control Duka One ventilation units on your local network.",
+    "da": "Styr Duka One ventilationsenheder på dit lokale netværk."
+  },
+  "category": "climate",
+  "brandColor": "#0e6b5c",
+  "tags": {
+    "en": [
+      "duka",
+      "ventilation",
+      "fan",
+      "heat recovery",
+      "humidity"
+    ],
+    "da": [
+      "duka",
+      "ventilation",
+      "blæser",
+      "varmegenvinding",
+      "luftfugtighed"
+    ]
+  },
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Søren H. Johansen"
+  },
+  "source": "https://github.com/SorenHJohansen/homey-dukaone",
+  "bugs": {
+    "url": "https://github.com/SorenHJohansen/homey-dukaone/issues"
+  },
+  "support": "https://github.com/SorenHJohansen/homey-dukaone/issues",
+  "flow": {
+    "triggers": [
+      {
+        "id": "dukaone_mode_changed",
+        "title": {
+          "en": "The ventilation mode changed",
+          "da": "Ventilationstilstanden blev ændret"
+        },
+        "tokens": [
+          {
+            "name": "dukaone_mode",
+            "type": "string",
+            "title": {
+              "en": "Mode",
+              "da": "Tilstand"
+            },
+            "example": {
+              "en": "In/out",
+              "da": "Ind/ud"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          }
+        ]
+      },
+      {
+        "id": "alarm_filter_true",
+        "title": {
+          "en": "The filter needs replacing",
+          "da": "Filteret skal skiftes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          }
+        ]
+      },
+      {
+        "id": "alarm_filter_false",
+        "title": {
+          "en": "The filter alarm was cleared",
+          "da": "Filteralarmen blev ryddet"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_mode",
+        "title": {
+          "en": "Set ventilation mode",
+          "da": "Indstil ventilationstilstand"
+        },
+        "titleFormatted": {
+          "en": "Set ventilation mode to [[mode]]",
+          "da": "Indstil ventilationstilstand til [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "dropdown",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "da": "Tilstand"
+            },
+            "values": [
+              {
+                "id": "inout",
+                "title": {
+                  "en": "In/out (heat recovery)",
+                  "da": "Ind/ud (varmegenvinding)"
+                }
+              },
+              {
+                "id": "in",
+                "title": {
+                  "en": "In (supply air)",
+                  "da": "Ind (indblæsning)"
+                }
+              },
+              {
+                "id": "out",
+                "title": {
+                  "en": "Out (exhaust air)",
+                  "da": "Ud (udsugning)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_speed",
+        "title": {
+          "en": "Set fan speed",
+          "da": "Indstil blæserhastighed"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "da": "Indstil blæserhastighed til [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "dropdown",
+            "name": "speed",
+            "title": {
+              "en": "Speed",
+              "da": "Hastighed"
+            },
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "da": "Fra"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low",
+                  "da": "Lav"
+                }
+              },
+              {
+                "id": "medium",
+                "title": {
+                  "en": "Medium",
+                  "da": "Mellem"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High",
+                  "da": "Høj"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_manual_speed",
+        "title": {
+          "en": "Set manual fan speed",
+          "da": "Indstil manuel blæserhastighed"
+        },
+        "titleFormatted": {
+          "en": "Set manual fan speed to [[speed]] %",
+          "da": "Indstil manuel blæserhastighed til [[speed]] %"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          },
+          {
+            "type": "range",
+            "name": "speed",
+            "title": {
+              "en": "Speed",
+              "da": "Hastighed"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "label": "%"
+          }
+        ]
+      },
+      {
+        "id": "reset_filter",
+        "title": {
+          "en": "Reset the filter timer",
+          "da": "Nulstil filtertiden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=dukaone"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Duka One ventilation unit",
+        "da": "Duka One ventilationsenhed"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "measure_humidity",
+        "dukaone_mode",
+        "alarm_filter",
+        "dukaone_filter_days",
+        "button.reset_filter"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "title": {
+            "en": "Fan speed",
+            "da": "Blæserhastighed"
+          }
+        },
+        "button.reset_filter": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset filter timer",
+            "da": "Nulstil filtertimer"
+          },
+          "desc": {
+            "en": "Tells the unit that the filter has been replaced and starts a new 90 day filter period.",
+            "da": "Fortæller enheden at filteret er skiftet og starter en ny 90 dages filterperiode."
+          }
+        }
+      },
+      "images": {
+        "small": "/drivers/dukaone/assets/images/small.png",
+        "large": "/drivers/dukaone/assets/images/large.png",
+        "xlarge": "/drivers/dukaone/assets/images/xlarge.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "start"
+        }
+      ],
+      "id": "dukaone"
+    }
+  ],
+  "capabilities": {
+    "alarm_filter": {
+      "type": "boolean",
+      "title": {
+        "en": "Replace filter",
+        "da": "Skift filter"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insightsTitleTrue": {
+        "en": "The filter needs replacing",
+        "da": "Filteret skal skiftes"
+      },
+      "insightsTitleFalse": {
+        "en": "The filter is OK",
+        "da": "Filteret er OK"
+      }
+    },
+    "dukaone_filter_days": {
+      "type": "number",
+      "title": {
+        "en": "Filter lifetime",
+        "da": "Filterlevetid"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "units": {
+        "en": "days",
+        "da": "dage"
+      },
+      "decimals": 1,
+      "min": 0,
+      "max": 1000
+    },
+    "dukaone_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Ventilation mode",
+        "da": "Ventilationstilstand"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "values": [
+        {
+          "id": "inout",
+          "title": {
+            "en": "In/out",
+            "da": "Ind/ud"
+          }
+        },
+        {
+          "id": "in",
+          "title": {
+            "en": "In",
+            "da": "Ind"
+          }
+        },
+        {
+          "id": "out",
+          "title": {
+            "en": "Out",
+            "da": "Ud"
+          }
+        }
+      ]
+    }
+  }
+}
