@@ -69,10 +69,11 @@ jobs:
 
           git add -A
           git commit -m "Release $VERSION"
-          git tag "v$VERSION"
+          git tag -a "v$VERSION" -m "Release $VERSION"
           git push --follow-tags
 
       - name: Publish to the Homey App Store
         env:
           HOMEY_PAT: ${{ secrets.HOMEY_PAT }}
+          HOMEY_HEADLESS: "1"
         run: homey app publish
