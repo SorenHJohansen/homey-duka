@@ -18,5 +18,9 @@
   "2.0.0": {
     "en": "The S6W now exposes its full parameter set: night and party timers, humidity, relay and 0-10 V inputs with setpoints, boost delay, filter interval, stage speeds, the unit alarm, and the weekly schedule with a dashboard editor. The smart fan gains humidity and temperature control, the external switch input, interval percentage, the silent window and run delays, a boost countdown and run states, and its temperature reading is corrected. Fan speed is a labelled slider, reporting deadbands are configurable per device, and the schedule is no longer printed on the tile. The old dim capability was replaced, so dim Flow cards must be recreated.",
     "da": "S6W'en viser nu hele parametersættet: nat- og festtimere, fugt-, relæ- og 0-10 V-indgange med setpunkter, boostforsinkelse, filterinterval, trinhastigheder, enhedsalarmen og ugeprogrammet med en editor på dashboardet. Smart-ventilatoren får fugt- og temperaturstyring, ekstern kontakt, intervalprocent, det lydsvage vindue og forsinkelser samt boost-nedtælling og tilstande, og temperaturen vises nu korrekt. Hastigheden er en navngivet skyder, dødbånd kan indstilles pr. enhed, og ugeprogrammet fylder ikke længere på flisen. Den gamle dim-funktion er erstattet, så dim-flowkort skal genskabes."
+  },
+  "2.0.1": {
+    "en": "Updated the app and driver images with real DUKA photos, gave the app and drivers new icons, and added new light and dark widget previews. Completed the Danish translations for the S6W settings and Flow cards.",
+    "da": "Opdaterede app- og driverbillederne med rigtige DUKA-fotos, gav appen og driverne nye ikoner og tilføjede nye widget-forevisninger til lys og mørk tilstand. Færdiggjorde de danske oversættelser af S6W-indstillingerne og Flow-kortene."
   }
 }
