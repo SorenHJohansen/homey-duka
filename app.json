@@ -35,9 +35,9 @@
     ]
   },
   "images": {
-    "small": "/assets/images/small.png",
-    "large": "/assets/images/large.png",
-    "xlarge": "/assets/images/xlarge.png"
+    "small": "/assets/images/small.jpg",
+    "large": "/assets/images/large.jpg",
+    "xlarge": "/assets/images/xlarge.jpg"
   },
   "author": {
     "name": "Søren H. Johansen",
@@ -281,22 +281,22 @@
               {
                 "id": "inout",
                 "title": {
-                  "en": "In/out (heat recovery)",
-                  "da": "Ind/ud (varmegenvinding)"
+                  "en": "Heat recovery",
+                  "da": "Varmegenvinding"
                 }
               },
               {
                 "id": "in",
                 "title": {
-                  "en": "In (supply air)",
-                  "da": "Ind (indblæsning)"
+                  "en": "Supply only",
+                  "da": "Kun indblæsning"
                 }
               },
               {
                 "id": "out",
                 "title": {
-                  "en": "Out (exhaust air)",
-                  "da": "Ud (udsugning)"
+                  "en": "Exhaust only",
+                  "da": "Kun udsugning"
                 }
               }
             ]
@@ -330,29 +330,29 @@
               {
                 "id": "off",
                 "title": {
-                  "en": "Off",
-                  "da": "Fra"
+                  "en": "off",
+                  "da": "fra"
                 }
               },
               {
                 "id": "low",
                 "title": {
-                  "en": "Low",
-                  "da": "Lav"
+                  "en": "low",
+                  "da": "lav"
                 }
               },
               {
                 "id": "medium",
                 "title": {
-                  "en": "Medium",
-                  "da": "Mellem"
+                  "en": "medium",
+                  "da": "mellem"
                 }
               },
               {
                 "id": "high",
                 "title": {
-                  "en": "High",
-                  "da": "Høj"
+                  "en": "high",
+                  "da": "høj"
                 }
               }
             ]
@@ -430,22 +430,22 @@
               {
                 "id": "off",
                 "title": {
-                  "en": "Off",
-                  "da": "Fra"
+                  "en": "off",
+                  "da": "fra"
                 }
               },
               {
                 "id": "night",
                 "title": {
-                  "en": "Night",
-                  "da": "Nat"
+                  "en": "night",
+                  "da": "nat"
                 }
               },
               {
                 "id": "party",
                 "title": {
-                  "en": "Party",
-                  "da": "Fest"
+                  "en": "party",
+                  "da": "fest"
                 }
               }
             ]
@@ -479,15 +479,15 @@
               {
                 "id": "on",
                 "title": {
-                  "en": "On",
-                  "da": "Til"
+                  "en": "on",
+                  "da": "til"
                 }
               },
               {
                 "id": "off",
                 "title": {
-                  "en": "Off",
-                  "da": "Fra"
+                  "en": "off",
+                  "da": "fra"
                 }
               }
             ]
@@ -503,6 +503,10 @@
         "titleFormatted": {
           "en": "Set [[weekday]] period [[period]] to [[speed]] ending at [[hours]]:[[minutes]]",
           "da": "Indstil [[weekday]] periode [[period]] til [[speed]] der slutter [[hours]]:[[minutes]]"
+        },
+        "hint": {
+          "en": "A period runs until the next period starts. All days writes the same period to every weekday.",
+          "da": "En periode kører, indtil den næste starter. Alle dage skriver samme periode til hver ugedag."
         },
         "args": [
           {
@@ -704,6 +708,10 @@
           "en": "Read the weekly schedule",
           "da": "Læs ugeprogrammet"
         },
+        "hint": {
+          "en": "Reads the schedule from the unit and outputs it as a summary.",
+          "da": "Læser ugeprogrammet fra enheden og sender det videre som en opsummering."
+        },
         "tokens": [
           {
             "name": "summary",
@@ -753,15 +761,15 @@
               {
                 "id": "on",
                 "title": {
-                  "en": "On",
-                  "da": "Til"
+                  "en": "on",
+                  "da": "til"
                 }
               },
               {
                 "id": "off",
                 "title": {
-                  "en": "Off",
-                  "da": "Fra"
+                  "en": "off",
+                  "da": "fra"
                 }
               }
             ]
@@ -795,15 +803,15 @@
               {
                 "id": "on",
                 "title": {
-                  "en": "On",
-                  "da": "Til"
+                  "en": "on",
+                  "da": "til"
                 }
               },
               {
                 "id": "off",
                 "title": {
-                  "en": "Off",
-                  "da": "Fra"
+                  "en": "off",
+                  "da": "fra"
                 }
               }
             ]
@@ -837,15 +845,15 @@
               {
                 "id": "on",
                 "title": {
-                  "en": "On",
-                  "da": "Til"
+                  "en": "on",
+                  "da": "til"
                 }
               },
               {
                 "id": "off",
                 "title": {
-                  "en": "Off",
-                  "da": "Fra"
+                  "en": "off",
+                  "da": "fra"
                 }
               }
             ]
@@ -954,9 +962,9 @@
         }
       },
       "images": {
-        "small": "/drivers/duka/assets/images/small.png",
-        "large": "/drivers/duka/assets/images/large.png",
-        "xlarge": "/drivers/duka/assets/images/xlarge.png"
+        "small": "/drivers/duka/assets/images/small.jpg",
+        "large": "/drivers/duka/assets/images/large.jpg",
+        "xlarge": "/drivers/duka/assets/images/xlarge.jpg"
       },
       "platforms": [
         "local"
@@ -974,54 +982,63 @@
         {
           "type": "group",
           "label": {
-            "en": "Sensors"
+            "en": "Sensors",
+            "da": "Sensorer"
           },
           "children": [
             {
               "id": "humidity_sensor",
               "type": "checkbox",
               "label": {
-                "en": "Humidity sensor"
+                "en": "Humidity sensor",
+                "da": "Fugtsensor"
               },
               "value": true,
               "hint": {
-                "en": "Let the humidity sensor start boost when the setpoint is exceeded."
+                "en": "Let the humidity sensor start boost when the setpoint is exceeded.",
+                "da": "Lad fugtsensoren starte boost, når setpunktet overskrides."
               }
             },
             {
               "id": "analog_sensor",
               "type": "checkbox",
               "label": {
-                "en": "0-10 V sensor"
+                "en": "0-10 V sensor",
+                "da": "0-10 V-sensor"
               },
               "value": false,
               "hint": {
-                "en": "Let the 0-10 V input start boost when the setpoint is exceeded."
+                "en": "Let the 0-10 V input start boost when the setpoint is exceeded.",
+                "da": "Lad 0-10 V-indgangen starte boost, når setpunktet overskrides."
               }
             },
             {
               "id": "analog_threshold",
               "type": "number",
               "label": {
-                "en": "0-10 V setpoint"
+                "en": "0-10 V setpoint",
+                "da": "0-10 V-setpunkt"
               },
               "value": 50,
               "min": 5,
               "max": 100,
               "step": 1,
               "units": {
-                "en": "%"
+                "en": "%",
+                "da": "%"
               }
             },
             {
               "id": "relay_sensor",
               "type": "checkbox",
               "label": {
-                "en": "Relay input"
+                "en": "Relay input",
+                "da": "Relæindgang"
               },
               "value": false,
               "hint": {
-                "en": "Let a closed relay input start boost."
+                "en": "Let a closed relay input start boost.",
+                "da": "Lad en lukket relæindgang starte boost."
               }
             }
           ]
@@ -1029,77 +1046,88 @@
         {
           "type": "group",
           "label": {
-            "en": "Timers"
+            "en": "Timers",
+            "da": "Timere"
           },
           "children": [
             {
               "id": "boost_delay",
               "type": "number",
               "label": {
-                "en": "Boost run time"
+                "en": "Boost run time",
+                "da": "Boostkøretid"
               },
               "value": 30,
               "min": 0,
               "max": 60,
               "step": 1,
               "units": {
-                "en": "min"
+                "en": "min",
+                "da": "min"
               }
             },
             {
               "id": "night_minutes",
               "type": "number",
               "label": {
-                "en": "Night mode minutes"
+                "en": "Night mode minutes",
+                "da": "Nattilstand minutter"
               },
               "value": 0,
               "min": 0,
               "max": 59,
               "step": 1,
               "units": {
-                "en": "min"
+                "en": "min",
+                "da": "min"
               }
             },
             {
               "id": "night_hours",
               "type": "number",
               "label": {
-                "en": "Night mode hours"
+                "en": "Night mode hours",
+                "da": "Nattilstand timer"
               },
               "value": 8,
               "min": 0,
               "max": 23,
               "step": 1,
               "units": {
-                "en": "h"
+                "en": "h",
+                "da": "t"
               }
             },
             {
               "id": "party_minutes",
               "type": "number",
               "label": {
-                "en": "Party mode minutes"
+                "en": "Party mode minutes",
+                "da": "Festtilstand minutter"
               },
               "value": 0,
               "min": 0,
               "max": 59,
               "step": 1,
               "units": {
-                "en": "min"
+                "en": "min",
+                "da": "min"
               }
             },
             {
               "id": "party_hours",
               "type": "number",
               "label": {
-                "en": "Party mode hours"
+                "en": "Party mode hours",
+                "da": "Festtilstand timer"
               },
               "value": 4,
               "min": 0,
               "max": 23,
               "step": 1,
               "units": {
-                "en": "h"
+                "en": "h",
+                "da": "t"
               }
             }
           ]
@@ -1107,21 +1135,24 @@
         {
           "type": "group",
           "label": {
-            "en": "Filter"
+            "en": "Filter",
+            "da": "Filter"
           },
           "children": [
             {
               "id": "filter_interval",
               "type": "number",
               "label": {
-                "en": "Filter replacement interval"
+                "en": "Filter replacement interval",
+                "da": "Filterinterval"
               },
               "value": 365,
               "min": 70,
               "max": 365,
               "step": 1,
               "units": {
-                "en": "days"
+                "en": "days",
+                "da": "dage"
               }
             }
           ]
@@ -1129,14 +1160,16 @@
         {
           "type": "group",
           "label": {
-            "en": "Fan stage speeds"
+            "en": "Fan stage speeds",
+            "da": "Trinhastigheder"
           },
           "children": [
             {
               "id": "supply_speed_1",
               "type": "number",
               "label": {
-                "en": "Supply speed 1"
+                "en": "Supply speed 1",
+                "da": "Indblæsningshastighed 1"
               },
               "value": 40,
               "min": 10,
@@ -1147,7 +1180,8 @@
               "id": "exhaust_speed_1",
               "type": "number",
               "label": {
-                "en": "Exhaust speed 1"
+                "en": "Exhaust speed 1",
+                "da": "Udsugningshastighed 1"
               },
               "value": 35,
               "min": 10,
@@ -1158,7 +1192,8 @@
               "id": "supply_speed_2",
               "type": "number",
               "label": {
-                "en": "Supply speed 2"
+                "en": "Supply speed 2",
+                "da": "Indblæsningshastighed 2"
               },
               "value": 90,
               "min": 10,
@@ -1169,7 +1204,8 @@
               "id": "exhaust_speed_2",
               "type": "number",
               "label": {
-                "en": "Exhaust speed 2"
+                "en": "Exhaust speed 2",
+                "da": "Udsugningshastighed 2"
               },
               "value": 80,
               "min": 10,
@@ -1180,7 +1216,8 @@
               "id": "supply_speed_3",
               "type": "number",
               "label": {
-                "en": "Supply speed 3"
+                "en": "Supply speed 3",
+                "da": "Indblæsningshastighed 3"
               },
               "value": 140,
               "min": 10,
@@ -1191,7 +1228,8 @@
               "id": "exhaust_speed_3",
               "type": "number",
               "label": {
-                "en": "Exhaust speed 3"
+                "en": "Exhaust speed 3",
+                "da": "Udsugningshastighed 3"
               },
               "value": 130,
               "min": 10,
@@ -1203,24 +1241,28 @@
         {
           "type": "group",
           "label": {
-            "en": "Reporting"
+            "en": "Reporting",
+            "da": "Rapportering"
           },
           "children": [
             {
               "id": "humidity_step",
               "type": "number",
               "label": {
-                "en": "Humidity deadband"
+                "en": "Humidity deadband",
+                "da": "Fugt-dødbånd"
               },
               "value": 5,
               "min": 1,
               "max": 25,
               "step": 1,
               "units": {
-                "en": "%RH"
+                "en": "%RH",
+                "da": "%RF"
               },
               "hint": {
-                "en": "Only publish a humidity change of at least this many points."
+                "en": "Only publish a humidity change of at least this many points.",
+                "da": "Send kun en fugtændring på mindst så mange point."
               }
             }
           ]
@@ -1248,9 +1290,9 @@
         "duka_interval_active"
       ],
       "images": {
-        "small": "/drivers/duka_smart/assets/images/small.png",
-        "large": "/drivers/duka_smart/assets/images/large.png",
-        "xlarge": "/drivers/duka_smart/assets/images/xlarge.png"
+        "small": "/drivers/duka_smart/assets/images/small.jpg",
+        "large": "/drivers/duka_smart/assets/images/large.jpg",
+        "xlarge": "/drivers/duka_smart/assets/images/xlarge.jpg"
       },
       "platforms": [
         "local"

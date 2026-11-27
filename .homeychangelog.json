@@ -12,7 +12,8 @@
     "da": "Reducer unødvendige opdateringer og trafik: temperatur afrundes til 0,1 C, 100 omdr./min. dødbånd, samlede statusopdateringer, debounce på skydere, serielle kommandoer pr. enhed og længere intervaller for offline enheder og firmwareforsøg."
   },
   "1.0.0": {
-    "en": "New app"
+    "en": "New app",
+    "da": "Ny app"
   },
   "2.0.0": {
     "en": "The S6W now exposes its full parameter set: night and party timers, humidity, relay and 0-10 V inputs with setpoints, boost delay, filter interval, stage speeds, the unit alarm, and the weekly schedule with a dashboard editor. The smart fan gains humidity and temperature control, the external switch input, interval percentage, the silent window and run delays, a boost countdown and run states, and its temperature reading is corrected. Fan speed is a labelled slider, reporting deadbands are configurable per device, and the schedule is no longer printed on the tile. The old dim capability was replaced, so dim Flow cards must be recreated.",

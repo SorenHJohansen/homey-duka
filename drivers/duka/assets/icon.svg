@@ -1,8 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" width="960" height="960">
-  <rect x="180" y="140" width="600" height="680" rx="80" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M330 620 L330 360" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M270 420 L330 360 L390 420" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M630 340 L630 600" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M570 540 L630 600 L690 540" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M400 480 L440 440 L480 480 L520 440 L560 480" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(480 480) scale(1.35) translate(-480 -480) translate(49 23)" fill="none" stroke="#1d1d1b" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Wall unit -->
+    <path d="M262 152h338a62 62 0 0 1 62 62v486a62 62 0 0 1-62 62H262a62 62 0 0 1-62-62V214a62 62 0 0 1 62-62Z" stroke-width="29.6296"/>
+    <!-- Vent opening -->
+    <circle cx="431" cy="402" r="132" stroke-width="29.6296"/>
+    <circle cx="431" cy="402" r="76" stroke-width="14.8148"/>
+    <!-- Supply and extract arrows -->
+    <path d="M318 620v92m-34-34 34 34 34-34" stroke-width="29.6296"/>
+    <path d="M544 712v-92m-34 34 34-34 34 34" stroke-width="29.6296"/>
+  </g>
 </svg>

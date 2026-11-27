@@ -19,9 +19,9 @@
     "duka_interval_active"
   ],
   "images": {
-    "small": "/drivers/duka_smart/assets/images/small.png",
-    "large": "/drivers/duka_smart/assets/images/large.png",
-    "xlarge": "/drivers/duka_smart/assets/images/xlarge.png"
+    "small": "/drivers/duka_smart/assets/images/small.jpg",
+    "large": "/drivers/duka_smart/assets/images/large.jpg",
+    "xlarge": "/drivers/duka_smart/assets/images/xlarge.jpg"
   },
   "platforms": [
     "local"

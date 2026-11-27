@@ -161,6 +161,8 @@ the DUKA units are based on, with the parameter table collected in
 [duka_connect](https://github.com/HairingX/duka_connect). This app is an
 independent JavaScript implementation of the same protocol.
 
+The app image and driver images use product photos from DUKA Ventilation.
+
 ## License
 
 GPL-3.0. See [LICENSE](LICENSE).

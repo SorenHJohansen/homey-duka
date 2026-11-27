@@ -22,15 +22,15 @@
             {
               "id": "on",
               "title": {
-                "en": "On",
-                "da": "Til"
+                "en": "on",
+                "da": "til"
               }
             },
             {
               "id": "off",
               "title": {
-                "en": "Off",
-                "da": "Fra"
+                "en": "off",
+                "da": "fra"
               }
             }
           ]
@@ -59,15 +59,15 @@
             {
               "id": "on",
               "title": {
-                "en": "On",
-                "da": "Til"
+                "en": "on",
+                "da": "til"
               }
             },
             {
               "id": "off",
               "title": {
-                "en": "Off",
-                "da": "Fra"
+                "en": "off",
+                "da": "fra"
               }
             }
           ]
@@ -96,15 +96,15 @@
             {
               "id": "on",
               "title": {
-                "en": "On",
-                "da": "Til"
+                "en": "on",
+                "da": "til"
               }
             },
             {
               "id": "off",
               "title": {
-                "en": "Off",
-                "da": "Fra"
+                "en": "off",
+                "da": "fra"
               }
             }
           ]

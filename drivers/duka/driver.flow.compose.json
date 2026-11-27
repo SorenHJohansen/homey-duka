@@ -22,22 +22,22 @@
             {
               "id": "inout",
               "title": {
-                "en": "In/out (heat recovery)",
-                "da": "Ind/ud (varmegenvinding)"
+                "en": "Heat recovery",
+                "da": "Varmegenvinding"
               }
             },
             {
               "id": "in",
               "title": {
-                "en": "In (supply air)",
-                "da": "Ind (indblæsning)"
+                "en": "Supply only",
+                "da": "Kun indblæsning"
               }
             },
             {
               "id": "out",
               "title": {
-                "en": "Out (exhaust air)",
-                "da": "Ud (udsugning)"
+                "en": "Exhaust only",
+                "da": "Kun udsugning"
               }
             }
           ]
@@ -66,29 +66,29 @@
             {
               "id": "off",
               "title": {
-                "en": "Off",
-                "da": "Fra"
+                "en": "off",
+                "da": "fra"
               }
             },
             {
               "id": "low",
               "title": {
-                "en": "Low",
-                "da": "Lav"
+                "en": "low",
+                "da": "lav"
               }
             },
             {
               "id": "medium",
               "title": {
-                "en": "Medium",
-                "da": "Mellem"
+                "en": "medium",
+                "da": "mellem"
               }
             },
             {
               "id": "high",
               "title": {
-                "en": "High",
-                "da": "Høj"
+                "en": "high",
+                "da": "høj"
               }
             }
           ]
@@ -149,22 +149,22 @@
             {
               "id": "off",
               "title": {
-                "en": "Off",
-                "da": "Fra"
+                "en": "off",
+                "da": "fra"
               }
             },
             {
               "id": "night",
               "title": {
-                "en": "Night",
-                "da": "Nat"
+                "en": "night",
+                "da": "nat"
               }
             },
             {
               "id": "party",
               "title": {
-                "en": "Party",
-                "da": "Fest"
+                "en": "party",
+                "da": "fest"
               }
             }
           ]
@@ -193,15 +193,15 @@
             {
               "id": "on",
               "title": {
-                "en": "On",
-                "da": "Til"
+                "en": "on",
+                "da": "til"
               }
             },
             {
               "id": "off",
               "title": {
-                "en": "Off",
-                "da": "Fra"
+                "en": "off",
+                "da": "fra"
               }
             }
           ]
@@ -217,6 +217,10 @@
       "titleFormatted": {
         "en": "Set [[weekday]] period [[period]] to [[speed]] ending at [[hours]]:[[minutes]]",
         "da": "Indstil [[weekday]] periode [[period]] til [[speed]] der slutter [[hours]]:[[minutes]]"
+      },
+      "hint": {
+        "en": "A period runs until the next period starts. All days writes the same period to every weekday.",
+        "da": "En periode kører, indtil den næste starter. Alle dage skriver samme periode til hver ugedag."
       },
       "args": [
         {
@@ -412,6 +416,10 @@
       "title": {
         "en": "Read the weekly schedule",
         "da": "Læs ugeprogrammet"
+      },
+      "hint": {
+        "en": "Reads the schedule from the unit and outputs it as a summary.",
+        "da": "Læser ugeprogrammet fra enheden og sender det videre som en opsummering."
       },
       "tokens": [
         {

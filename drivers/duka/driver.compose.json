@@ -37,9 +37,9 @@
     }
   },
   "images": {
-    "small": "/drivers/duka/assets/images/small.png",
-    "large": "/drivers/duka/assets/images/large.png",
-    "xlarge": "/drivers/duka/assets/images/xlarge.png"
+    "small": "/drivers/duka/assets/images/small.jpg",
+    "large": "/drivers/duka/assets/images/large.jpg",
+    "xlarge": "/drivers/duka/assets/images/xlarge.jpg"
   },
   "platforms": [
     "local"
